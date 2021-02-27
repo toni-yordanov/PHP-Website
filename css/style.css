@@ -1,0 +1,388 @@
+@import"grid.css";
+
+*{
+    box-sizing: border-box;
+}
+html,body{
+    height: 100%;
+}
+body{
+    margin: 0;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 1rem;
+    color: rgb(31, 29, 29);
+    background-color: rgb(236, 219, 204);
+}
+
+/* Colors */
+.white{ color: rgb(255, 255, 255); }
+.bone{ color: rgb(218, 210, 188); }
+.metalic{ color: rgb(179, 181, 189); }
+.gray{ color: rgb(75, 78, 88)}
+.black{ color: rgb(31, 29, 29);}
+.brown{ color: rgb(156, 102, 68);}
+.almond{ color: rgb(237, 224, 212);}
+
+.bgr-white{ background-color:rgb(255, 255, 255);}
+.bgr-bone{ background-color: rgb(218, 210, 188);}
+.bgr-metalic{ background-color: rgb(179, 181, 189);}
+.bgr-black{ background-color: rgb(31, 29, 29);}
+.bgr-brown{ background-color: rgb(156, 102, 68);}
+
+
+/* Text */
+a{
+    text-decoration: none;
+    color: rgb(221, 184, 146);/*desert sand */
+}
+a:hover{
+    color: rgb(234, 214, 195);/*almond */
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 0.67em 0;  
+}
+h1,h2,h3{
+    color: rgb(127, 85, 57);/*Coffe*/
+}
+h1{
+    font-size: 2.5em;
+}
+h2{
+    font-size: 2em;
+    text-transform: capitalize;
+}
+h3{
+    font-size: 1.4em;
+}
+
+h4,h5,h6{
+    text-transform: uppercase;
+    font-family: serif;
+}
+p{
+    line-height: 1.5;
+}
+.top h2{
+    font-size: 5em;
+    text-transform: capitalize;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px black;
+}
+.center-text{
+    text-align: center;
+}
+@media(max-width:991px){
+    .center-text-s{
+        text-align: center;
+    }
+}
+.footer p{
+    margin: 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+address{
+    line-height: 2em;
+    margin-bottom: 0.67em;
+}
+.text-right{
+    float: right;
+}
+
+
+/* Images */
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.change {
+        position: relative;
+        display: block;
+        
+    }
+    .change .img-top {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        
+    }
+    .change:hover .img-top {
+        display: block;
+        transition-delay:  1s ease;
+        
+    }
+
+.img-bgr-1{
+ 
+    background-position: center center;
+    background-attachment: local;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition-property: bacground-image;
+    transition-timing-function: ease-in-out;
+}
+
+/* Layout */
+.header{
+    width: 100%;
+    background-color: rgba(176, 137, 104);
+    box-shadow: 0 5px 5px rgba(253, 255, 252, .5);
+}
+.top{
+    width: inherit;
+    height: calc(100% - 80px); 
+}
+.site-branding{
+    height: 80px;
+    width: 100%;
+}
+.site-branding img{
+    float: left;
+    height: 100%;
+    width: auto;
+    margin-right: 10px;    
+}
+.site-branding p{
+    float: left;
+    display: inline-block;
+    margin: 0;
+    line-height: 80px;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 700; 
+}
+.footer{
+    box-shadow: 0 -5px 5px rgba(253, 255, 252, .5);
+}
+@media(max-width:991px){
+    .top{
+        height: calc(100% - 50px); 
+    }
+    .site-branding{ height: 50px; }
+    .site-branding p{
+        line-height: 50px;   
+    }    
+}
+
+/* Menu */
+.menu{
+    float: right;
+    height: 80px; 
+    margin: 0 ;
+    padding: 0;
+}
+.menu ul{
+    list-style-type: none;  
+    margin: 0 auto;
+    padding: 0;  
+    overflow: hidden;
+}
+.menu ul li{
+    float:left;
+}
+.menu ul li a{
+    display: block;
+    line-height: 75px;
+    padding: 0 15px;  
+    color: rgb(237, 224, 212);/*Almond*/
+    font-size: 1.2em;
+    border-top: 5px solid rgb(230,230,230);
+    font-variant-caps: small-caps;
+    text-decoration: none;
+    transition: all linear 0.15s;
+    background-color: rgb(176, 137, 104);
+}
+.menu ul li a:hover{
+    background-color: rgb(230, 204, 178);
+    border-top: 5px solid rgb(127, 85, 57);
+    color: rgb(99, 66, 44);
+}
+.menu ul li a.current {
+    border-top: 5px solid rgb(156, 102, 68);
+    background-color: rgb(127, 85, 57);
+}
+.menu ul li a.current:hover{
+    border-top: 5px solid rgb(127, 85, 57);
+    background-color: rgb(253, 255, 252);
+    color :rgb(99, 66, 44);
+}
+.toggle-nav{
+    display:none;
+    color: rgb(99, 66, 44);
+}
+@media(max-width:991px){
+    .menu{ height: 50px; }
+    .menu ul.active {
+        display:none;
+    }
+    .menu ul {
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 100%;
+        margin: 0;
+        background-color: rgb(255, 255, 255);
+        z-index: 1000;
+    }
+    .menu ul li {
+        float:none;
+        display:block;
+    }
+    .menu ul li a {
+        padding: 0;
+        line-height: 2;
+        text-align: center;
+        border: none;
+    }
+    .menu ul li a.current, .menu ul li a.current:hover, .menu ul li a:hover {
+        border: none;
+        color: rgb(99, 66, 44);
+        border: none;
+    }
+    .toggle-nav {
+        float: right;
+        padding: 10px;
+        display: inline-block;
+        font-size: 30px;
+        transition: color linear 0.15s;  
+    }
+    .toggle-nav:hover, .toggle-nav.active {
+        text-decoration:none;
+        
+    }   
+}
+
+/* Flex */
+.flex-container-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.flex-container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.flex-container-order{
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    overflow: hidden;  
+}
+.flex-container-order > div{
+    display: flex;
+    flex-flow: column;
+    text-align: center;  
+}
+.flex-container-order > div button{
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
+    width: auto;
+}
+.flex-item{
+    width: 45%;
+    margin: 1.5% 0;
+    background-color: rgb(253, 255, 252);
+    padding: 1%;
+    box-shadow: 0 5px 5px rgba(253, 255, 252, .2);
+}
+@media(max-width: 767px){
+    .flex-item{
+        width: 100%;
+    }
+}
+
+/* Buttons */
+[class*="btn-"]
+{
+	font-size: 1.1em;
+    padding: 0.4em 1em;
+    margin: 0.5em 0;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 1em;
+    background-color: rgba(255,255,255,0);
+    transition: 0.2s;
+    cursor: pointer;
+}
+.btn-white{
+    border-color: rgb(253, 255, 252); 
+    color: rgb(253, 255, 252); 
+}
+.btn-white:hover{
+    background-color: rgb(253, 255, 252);
+    color: dimgray;
+}
+/*Add more buttons*/
+
+/* Effects */
+.overlay{
+    position: relative;
+}
+.overlay img{
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;  
+}
+.overlay:hover img{
+    opacity: 0.3;
+}
+.overlay button{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgba(255,255,255,0.6);
+}
+.overlay:hover button{
+    opacity: 1;
+}
+
+/* Icons */
+.fb{
+    display: inline-block;
+    color: rgb(99, 66, 44);
+    margin-right: 5px;
+}
+ul.links{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+   
+}
+ul.links li {
+    float: left;
+    margin-right: 2em;
+}
+ul.links i{
+    font-size: 20px;
+    line-height: 30px;
+    
+}
+ul.links li a{
+    display: block; 
+    padding: 5px 0;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(127, 85, 57);
+    border-radius: 50%;
+    transition: 0.3s;
+}
+ul.links li a:hover{
+    background-color: rgb(99, 66, 44);
+}
+
+
+/* Form */
+
