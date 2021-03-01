@@ -18,7 +18,7 @@ body{
 .white{ color: rgb(255, 255, 255); }
 .bone{ color: rgb(218, 210, 188); }
 .metalic{ color: rgb(179, 181, 189); }
-.gray{ color: rgb(75, 78, 88)}
+.gray{ color: rgb(75, 78, 88);}
 .black{ color: rgb(31, 29, 29);}
 .brown{ color: rgb(156, 102, 68);}
 .almond{ color: rgb(237, 224, 212);}
@@ -382,7 +382,4 @@ ul.links li a{
 ul.links li a:hover{
     background-color: rgb(99, 66, 44);
 }
-
-
-/* Form */
 

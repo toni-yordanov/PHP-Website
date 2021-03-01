@@ -1,0 +1,52 @@
+@import "style.css";
+
+/* Log in*/
+#log-in{
+    margin: auto;
+    height: 400px;
+}
+#log-in h2{
+    color:black;
+    text-align: center;
+}
+form #log-in{
+    border:5px;
+}
+form input{
+    width: 94%;
+    padding: 8px 4px;
+    margin: 0 3% 2%;
+    font-size: 19px;
+    border: 2px solid #000
+}
+form label{
+    margin: 0 3% 4px;
+    display: block;
+    padding:  0 1%;
+    font-size: 18px;
+}
+#log-in button {
+    float: right;
+    height: 30px;
+    font-size: 20px;
+    margin: 0 3%;
+}
+#showPassword{
+    display: inline;
+    overflow: hidden;
+    font-size: 16px;
+}
+#showPassword input{
+    width: 30px;
+    padding-left: 3px;
+}
+.log_in-help{
+    padding: 4% 2% 0 2%;
+    font-size: 13px;
+}
+#forgotPassword{
+    float: left;
+}
+#noAccount{
+    float: right;
+}
