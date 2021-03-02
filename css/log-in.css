@@ -5,7 +5,7 @@
     margin: auto;
     height: 400px;
 }
-#log-in h2{
+#log-in h2, #register h2{
     color:black;
     text-align: center;
 }
@@ -25,7 +25,7 @@ form label{
     padding:  0 1%;
     font-size: 18px;
 }
-#log-in button {
+#log-in button, #register button{
     float: right;
     height: 30px;
     font-size: 20px;
@@ -40,7 +40,7 @@ form label{
     width: 30px;
     padding-left: 3px;
 }
-.log_in-help{
+.log_in-help, .register-help{
     padding: 4% 2% 0 2%;
     font-size: 13px;
 }
@@ -49,4 +49,19 @@ form label{
 }
 #noAccount{
     float: right;
+}
+
+/* Register */
+#register form{
+    margin: auto;
+    height: 630px;
+    border:5px;
+}
+.clearfix{
+    padding-bottom: 15%;
+    background-color: rgb(236, 219, 204);
+    border: 0;
+}
+#alreadyAccount{
+    text-align: center;
 }
