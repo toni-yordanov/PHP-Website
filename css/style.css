@@ -214,7 +214,7 @@ img{
     display:none;
     color: rgb(99, 66, 44);
 }
-@media(max-width:991px){
+@media(max-width:767px){
     .menu{ height: 50px; }
     .menu ul.active {
         display:none;
