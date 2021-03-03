@@ -115,7 +115,7 @@ img{
         
     }
 
-.img-bgr-1{
+.img-bgr{
  
     background-position: center center;
     background-attachment: local;
@@ -123,6 +123,7 @@ img{
     background-size: cover;
     transition-property: bacground-image;
     transition-timing-function: ease-in-out;
+    background-image: url(../pictures/bgr-img.jpeg);
 }
 
 /* Layout */
@@ -319,6 +320,15 @@ img{
     background-color: rgb(253, 255, 252);
     color: dimgray;
 }
+.btn-coffee{
+    background-color: rgb(127, 85, 57);
+    color: rgb(176, 137, 104);
+}
+.btn-coffee:hover{
+    background-color: rgb(176, 137, 104);
+    color: rgb(127, 85, 57);
+}
+
 /*Add more buttons*/
 
 /* Effects */
