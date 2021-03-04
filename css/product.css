@@ -1,0 +1,19 @@
+@import"style.css";
+
+.container-product{
+    height: calc(100% - 80px);
+}
+@media(max-width:767px){
+    .container-product{
+        height: auto;
+    }
+}
+.container-product h3{
+    text-transform: uppercase;
+    font-weight: bold ;
+    padding: 3.5%;
+}
+.container-product p{
+    padding: 3.5%;
+    text-align: justify;
+}
