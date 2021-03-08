@@ -6,39 +6,303 @@
     <title>Meubilair</title>
     <link rel="stylesheet" href="../css/catalogPage.css">
     <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
+    <script src="../js/catalogPage.Js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    
 </head>
 <body>
 <!-- START Top page -->
-<div id="home" class="container-full-height img-top">
+
         
-    <div class="header row">
-        <div class="col-pc-4 col-xs-9">
-            <div class="site-branding padding-left-right">
-                <img alt="logo" src="pictures/logos/flag_logo.png">
-                <p>Me<span class="bone">ubilair</span></p>
-            </div>
-        </div>
-        <div class="col-pc-8 col-xs-3">
-                <nav class="menu">
-                    <ul class="active">
-                        <li><a href="#top" class="current">Home</a></li>
-                        <li><a href="catalogPage.html">Bedroom</a></li>
-                        <li><a href="#">Bathroom</a></li>
-                        <li><a href="#">Garden</a></li>
-                        <li><a href="#">About us</a></li>
-                    </ul>
-                </nav>
-            <a class="toggle-nav" href="#"><i class="fas fa-bars"></i></a>
+<div class="header row">
+    <div class="col-pc-4 col-xs-9">
+        <div class="site-branding padding-left-right">
+            <img alt="logo" src="pictures/logos/flag_logo.png">
+            <p>Me<span class="bone">ubilair</span></p>
         </div>
     </div>
-    <div class="flex-container col-pc-12 col-xs-6">
-        <div class = "flex-item"></div>
-        <div class = "flex-item"></div>
-        <div class = "flex-item"></div>
+    <div class="col-pc-8 col-xs-3">
+            <nav class="menu">
+                <ul class="active">
+                    <li><a href="#top" class="current">Home</a></li>
+                    <li><a href="catalogPage.html">Bedroom</a></li>
+                    <li><a href="#">Bathroom</a></li>
+                    <li><a href="#">Garden</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+            </nav>
+        <a class="toggle-nav" href="#"><i class="fas fa-bars"></i></a>
     </div>
-</div> 
+</div>
+    
+<div class="top-img col-pc-12 col-xs-">
+    <div class="column">
+        <img src="../images/catalogPage/resized-image-Promo.jpeg">
+    </div>
+    <div class="column discard">
+        <img src="../images/catalogPage/garden-main2.jpg">
+    </div>
+</div>
+
+<div class="title">
+    <h1>Garden</h1>
+    <p>At MEUBILAIR you can fin the most suitable gardening tools and lorem ipsum lorem 
+        ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem
+         ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+         At MEUBILAIR you can fin the most suitable gardening tools and lorem ipsum lorem 
+         ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum lorem
+          ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
+</div>
 
 <!-- END Top page -->
+
+<div class="filter-mobile col-xs-12 b">
+
+</div>
+
+<div. id="catalogPage-body" class="container">
+
+    <div class="filter-container col-pc-2 col-xs-0">
+        <div class="filter">
+            <form id="filters">
+                
+            </form>
+            <div class="slider-container">
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="products col-pc-10 col-xs-12">
+        <div class = "product-items">
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="../images/catalogPage/garden.jpg" alt="product image">
+                    </div>
+                    <div class="product-btns">
+                        <button type="button" class="btn-wish">
+                            wishlist
+                            <span><i class = "fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                    </div>
+                    <p class="product-price">€150.43</p>
+                    <!-- <p class="product-price">€133.43</p> -->
+                </div>
+                <!--
+                <div class="off-info">
+                    <h2 class= "sm-title">25% off</h2>
+                </div>
+                -->
+            </div>
+            <!-- end of single product -->
+
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="../images/catalogPage/garden.jpg" alt="product image">
+                    </div>
+                    <div class="product-btns">
+                        <button type="button" class="btn-wish">
+                            wishlist
+                            <span><i class = "fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                    </div>
+                    <p class="product-price">€150.43</p>
+                    <!-- <p class="product-price">€133.43</p> -->
+                </div>
+                <!--
+                <div class="off-info">
+                    <h2 class= "sm-title">25% off</h2>
+                </div>
+                -->
+            </div>
+            <!-- end of single product -->
+
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="../images/catalogPage/garden.jpg" alt="product image">
+                    </div>
+                    <div class="product-btns">
+                        <button type="button" class="btn-wish">
+                            wishlist
+                            <span><i class = "fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                    </div>
+                    <p class="product-price">€150.43</p>
+                    <!-- <p class="product-price">€133.43</p> -->
+                </div>
+                <!--
+                <div class="off-info">
+                    <h2 class= "sm-title">25% off</h2>
+                </div>
+                -->
+            </div>
+            <!-- end of single product -->
+
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="../images/catalogPage/garden.jpg" alt="product image">
+                    </div>
+                    <div class="product-btns">
+                        <button type="button" class="btn-wish">
+                            wishlist
+                            <span><i class = "fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                    </div>
+                    <p class="product-price">€150.43</p>
+                    <!-- <p class="product-price">€133.43</p> -->
+                </div>
+                <!--
+                <div class="off-info">
+                    <h2 class= "sm-title">25% off</h2>
+                </div>
+                -->
+            </div>
+            <!-- end of single product -->
+
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="../images/catalogPage/garden.jpg" alt="product image">
+                    </div>
+                    <div class="product-btns">
+                        <button type="button" class="btn-wish">
+                            wishlist
+                            <span><i class = "fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                    </div>
+                    <p class="product-price">€150.43</p>
+                    <!-- <p class="product-price">€133.43</p> -->
+                </div>
+                <!--
+                <div class="off-info">
+                    <h2 class= "sm-title">25% off</h2>
+                </div>
+                -->
+            </div>
+            <!-- end of single product -->
+
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="../images/catalogPage/garden.jpg" alt="product image">
+                    </div>
+                    <div class="product-btns">
+                        <button type="button" class="btn-wish">
+                            wishlist
+                            <span><i class = "fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                    </div>
+                    <p class="product-price">€150.43</p>
+                    <!-- <p class="product-price">€133.43</p> -->
+                </div>
+                <!--
+                <div class="off-info">
+                    <h2 class= "sm-title">25% off</h2>
+                </div>
+                -->
+            </div>
+            <!-- end of single product -->
+
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="../images/catalogPage/garden.jpg" alt="product image">
+                    </div>
+                    <div class="product-btns">
+                        <button type="button" class="btn-wish">
+                            wishlist
+                            <span><i class = "fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                    </div>
+                    <p class="product-price">€150.43</p>
+                    <!-- <p class="product-price">€133.43</p> -->
+                </div>
+                <!--
+                <div class="off-info">
+                    <h2 class= "sm-title">25% off</h2>
+                </div>
+                -->
+            </div>
+            <!-- end of single product -->
+
+            <!-- single product -->
+            <div class="product">
+                <div class="product-content">
+                    <div class="product-img">
+                        <img src="../images/catalogPage/garden.jpg" alt="product image">
+                    </div>
+                    <div class="product-btns">
+                        <button type="button" class="btn-wish">
+                            wishlist
+                            <span><i class = "fas fa-plus"></i></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="product-info-top">
+                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                    </div>
+                    <p class="product-price">€150.43</p>
+                    <!-- <p class="product-price">€133.43</p> -->
+                </div>
+                <!--
+                <div class="off-info">
+                    <h2 class= "sm-title">25% off</h2>
+                </div>
+                -->
+            </div>
+            <!-- end of single product -->
+        </div>
+    </div>
+</div>
+
 
 </body>
 

@@ -1,5 +1,127 @@
 @import "style.css";
 
-.flex-item{
-    padding-left: 10%;
+
+
+.column{
+    float:left;
+    width: 50%;
+    padding: 5px;
+}
+.top-img img{
+   height: 300px;
+}
+.top-img::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title{
+    clear:both;
+    margin: 8% 1% 0 2%;
+}
+
+.products{
+    padding: 3.2rem 0;
+}
+.products .text-light{
+    text-align:  center;
+    width: 70%;
+    margin: 0.9rem auto
+}
+
+.product{
+    margin: 2rem;
+    position: relative;
+}
+
+.product-content{
+    padding: 3rem 0.5rem 0 0.5rem;
+}
+.product-img{
+    /*background: var(rgb(179, 181, 189));*/
+    box-shadow: 3px 3px #888888;
+    width:200px;
+    height:200px;
+    margin: 0 auto;
+    cursor:pointer;
+    /*transition:background 0.5 ease;*/
+}
+.product-btns{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+.btn-wish{
+    background: rgb(127, 85, 57);
+    color: rgb(31, 29, 29);
+    border: 1px solid black;
+    padding: 0.8rem 0;
+    width: 125px;
+    cursor: pointer;
+    transition: all 0.6s ease;
+}
+.btn-wish:hover{
+    background: rgb(237, 224, 212);
+}
+
+.filter-body{
+    float: left;
+}
+.filter{
+    height: 800px;
+    margin: 8rem 0 0 3rem;
+    background-color: #f3efef;
+}
+.filter-mobile{
+    background-color: #f3efef;
+    height: 200px;
+}
+.slider{ 
+    margin: 5% 0 0 15%; 
+    width: 75%;
+}
+.discard{
+
+}
+/* Media querries*/
+@media screen and (min-width: 767px){
+    .product-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 20%;
+    }
+}
+@media screen and (min-width: 992px){
+    .product-items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 50%;
+    }
+}
+/*
+@media screen and (max-width: 992px){
+    .discard{
+        display: none;
+    }
+    .column img{
+        width: 100%;
+    }
+}*/
+@media screen and (min-width: 1200px){
+    .product-items{
+        grid-template-columns: repeat(3, 1fr);
+        margin-left:auto;
+    }
+    .product{
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+}
+@media screen and (min-width: 1336px){
+    .product-items{
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

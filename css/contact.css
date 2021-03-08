@@ -1,0 +1,73 @@
+@import "style.css";
+
+.right h2{
+    color:black;
+    text-align: center;
+}
+form #contact{
+    border:5px;
+}
+textarea{
+    height: 200px;
+}
+form input, textarea{
+    width: 94%;
+    padding: 8px 4px;
+    margin: 0 3% 2%;
+    font-size: 19px;
+    border: 2px solid #000
+}
+form label{
+    margin: 0 3% 4px;
+    display: block;
+    padding:  0 1%;
+    font-size: 18px;
+}
+form button{
+    height: 40px;
+    font-size: 27px;
+    margin: 0 3%;
+}
+
+
+/* The grid container */
+.grid-container {
+display: grid;
+grid-template-areas:  
+    'left left right right right right';
+} 
+
+.left,
+.right {
+padding: 10px;
+height: 340px;
+}
+/* Style the left column */
+.left {
+grid-area: left;
+background-color:#aaa;
+}
+
+/* Style the right column */
+.right {
+grid-area: right;
+height: auto;
+background-color: rgb(156, 102, 68);
+}
+
+/* Style the footer */
+.footer {
+grid-area: footer;
+background-color: #f1f1f1;
+padding: 10px;
+text-align: center;
+}
+
+/* Responsive layout*/
+@media (max-width: 600px) {
+.grid-container  {
+    grid-template-areas: 
+    'left left left left left left' 
+    'right right right right right' 
+    }
+}

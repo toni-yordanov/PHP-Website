@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="EN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meubilair</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- START Top page -->
+<div id="home" class="container img-bgr-1">
+    <div class="header row">
+        <div class="col-pc-4 col-xs-9">
+            <div class="site-branding padding-left-right">
+                <img alt="logo" src="pictures/logos/flag_logo.png">
+                <p>Me<span class="bone">ubilair</span></p>
+            </div>
+        </div>
+        <div class="col-pc-8 col-xs-3">
+                <nav class="menu">
+                    <ul class="active">
+                        <li><a href="#top" class="current">Home</a></li>
+                        <li><a href="catalogPage.html">Bedroom</a></li>
+                        <li><a href="#">Bathroom</a></li>
+                        <li><a href="#">Garden</a></li>
+                        <li><a href="#">About us</a></li>
+                    </ul>
+                </nav>
+            <a class="toggle-nav" href="#"><i class="fas fa-bars"></i></a>
+        </div>
+    </div>
+</div> 
+<!-- END Top page -->
+
+
+<div class="grid-container">
+    <div class="left">
+        <p>Address: <i>Polanenweg 23, 5616 EH Eindhoven</i> </p>
+        <p>Telephone: +31756756756</p>
+        <p>Email: contact@meubilair.nl</p>
+        <p>Website:<a>www.meubilair.com</a></p>
+
+        <p><b>Banking details</b></p>
+        <p>IBAN: NL89 RABO 4346 8345 44</p>
+        <p>Derdelegelden Meubilair BV</p>
+        <p>BIC: RABONL2U</p>
+
+    </div>
+
+    <div class="right">
+        <h2>Contact us</h2>
+        <form id="f-contact" method="POST" action="#">
+        
+            <label for="full-name">Full name</label>
+            <p><input type="text" name="contact" value="">
+            </p>
+
+            <label for="email">Email</label>
+            <p><input type="text" name="contact" value="" autocapitalize="off" autocorrect="off">
+            </p>
+        
+            <label for="phone-nr">Phone number</label>
+            <p><input type="text" name="contact" value=""></p>
+
+            <label for="subject">Message</label>
+            <textarea id="message" name="contact" placeholder="Write something.."></textarea>
+
+            <button id="send" type="contact">Send</button>
+        </form> 
+    </div>
+</div>
+</body>
+
+</html>
