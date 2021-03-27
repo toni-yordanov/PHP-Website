@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="EN">
 
@@ -12,27 +13,31 @@
 
 <div class="container-center col-pc-4 col-xs-10 bgr-brown" id="register">
 <h2>Register</h2>
-<form id="register" method="POST" action="#">
+<form id="register" method="POST" action="../processes/register.php">
 
-    <label for="name">Name</label>
-    <p><input type="text" name="register" value="" autocorrect="off">
+    <label for="name">First name</label>
+    <p><input type="text" name="first_name" value="" autocorrect="off">
+    </p>
+
+    <label for="name">Last name</label>
+    <p><input type="text" name="last_name" value="" autocorrect="off">
     </p>
 
     <label for="email">Email</label>
-    <p><input type="text" name="register" value="" autocapitalize="off" autocorrect="off">
+    <p><input type="text" name="email" value="" autocapitalize="off" autocorrect="off">
     </p>
 
     <label for="phoneNr">Phone number</label>
-    <p><input type="tel" name="register" value="">
+    <p><input type="tel" name="phone_nr" value="">
     </p>
 
     <label for="password">Password</label>
-    <p><input type="password" name="register" value=""></p>
+    <p><input type="password" name="password" value=""></p>
 
     <label for="passwordMatch">Repeat password</label>
-    <p><input type="password" name="register" value=""></p>
+    <p><input type="password" name="passwordMatch" value=""></p>
 
-    <button id="btn-register" type="submit">Create account</button>
+    <button id="btn-register" type="submit" name="register">Create account</button>
     <label id="showPassword">
         Show password
         <input type="checkbox" checked="checked" name="showPassword">
