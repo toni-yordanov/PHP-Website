@@ -7,8 +7,8 @@ include_once('server.php');
 if(isset($_POST['btn-login']))
 {
     $con =  Dbh::connect();
-    $email = Dbh::cleanString($_POST['email']);
-    $password = Dbh::cleanPassword($_POST['password']);
+    $email = stringOperations::cleanString($_POST['email']);
+    $password = stringOperations::cleanPassword($_POST['password']);
 
     if($email == "" || $password == "")
     {

@@ -5,12 +5,12 @@ include_once('server.php');
 if(isset($_POST['register']))
 {
     $con =  Dbh::connect();
-    $first_name = Dbh::cleanString($_POST['first_name']);
-    $last_name = Dbh::cleanString($_POST['last_name']);
-    $email = Dbh::cleanString($_POST['email']);
-    $phone_nr = Dbh::cleanString($_POST['phone_nr']);
-    $password = Dbh::cleanPassword($_POST['password']);
-    $passwordMatch = Dbh::cleanPassword($_POST['passwordMatch']);
+    $first_name = stringOperations::cleanString($_POST['first_name']);
+    $last_name = stringOperations::cleanString($_POST['last_name']);
+    $email = stringOperations::cleanString($_POST['email']);
+    $phone_nr = stringOperations::cleanString($_POST['phone_nr']);
+    $password = stringOperations::cleanPassword($_POST['password']);
+    $passwordMatch = stringOperations::cleanPassword($_POST['passwordMatch']);
 
     if($first_name == "" || $last_name == "" || $email == "" || $phone_nr == "" || $password == "" || $passwordMatch == "")
     {

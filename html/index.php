@@ -32,7 +32,7 @@
         <div class="flex-item">
             <div class="overlay">
                 <img alt="Bedrooms" src="../pictures/bedroom.jpg" >
-                <a href="catalogPage.html"><button class="btn-coffee">Bedroom</button></a>
+                <a href="catalogPage.php"><button class="btn-coffee">Bedroom</button></a>
             </div>
             
         </div>
@@ -40,7 +40,7 @@
         <div class="flex-item">
             <div class="overlay">
                 <img alt="Bathroom" src="../pictures/bathroom.jpg" >
-                <a href="catalogPage.html"><button class="btn-coffee">Bathroom</button></a>
+                <a href="catalogPage.php"><button class="btn-coffee">Bathroom</button></a>
             </div>
             
         </div>
@@ -48,7 +48,7 @@
         <div class="flex-item">
             <div class="overlay">
                 <img alt="Garden" src="../pictures/garden.jpg" >
-                <a href="catalogPage.html"><button class="btn-coffee">Garden</button></a>
+                <a href="catalogPage.php"><button class="btn-coffee">Garden</button></a>
             </div>
             
         </div>
@@ -57,7 +57,7 @@
         <div class="flex-item">
             <div class="overlay">
                 <img alt="Office" src="../pictures/office.jpg" >
-                <a href="catalogPage.html"><button class="btn-coffee">Office</button></a>
+                <a href="catalogPage.php"><button class="btn-coffee">Office</button></a>
             </div>
             
         </div>
@@ -65,7 +65,7 @@
         <div class="flex-item">
             <div class="overlay">
                 <img alt="Living room" src="../pictures/living_room.jpg" >
-                <a href="catalogPage.html"><button class="btn-coffee">Living room</button></a>
+                <a href="catalogPage.php"><button class="btn-coffee">Living room</button></a>
             </div>
             
         </div>
@@ -73,7 +73,7 @@
         <div class="flex-item">
             <div class="overlay">
                 <img alt="kitchen" src="../pictures/kitchen.jpg" >
-                <a href="catalogPage.html"><button class="btn-coffee">Kitchen</button></a>
+                <a href="catalogPage.php"><button class="btn-coffee">Kitchen</button></a>
             </div>
             
         </div>

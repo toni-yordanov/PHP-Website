@@ -10,9 +10,7 @@
 </head>
 <body>
 
-<!-- START Top page -->
 <?php include('menu.html')?>
-<!-- END Top page -->
 
 <div class = "col-pc-6 col-xs-12">
 <div class = "left">
