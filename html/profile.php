@@ -28,13 +28,15 @@ function GetEmail()
 ?>
 
 <div class = "col-pc-6 col-xs-12">
-<div class = "left">
+
 
 <img class="profile-img" src="../pictures/Portrait_Placeholder.png" >
 
+
 </div>
-<?php ?>
-<div class = "right">
+
+<div class = "col-pc-6 col-xs-12">
+
 
     <form id="update-user" method="POST" action="../processes/update_profile.php">
 
@@ -52,8 +54,8 @@ function GetEmail()
         <input type="submit" value="update" name="update">
 
     </form>
-</div>
 
+</div>
 
 </body>
 </html>
