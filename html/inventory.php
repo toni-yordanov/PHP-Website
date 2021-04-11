@@ -12,9 +12,13 @@
 
 <?php include('menu.html')?>
 
-
+<div class = "col-pc-6 col-xs-12">
 <form id="f-products" method="POST" action="../processes/product-manager.php">
         
+            <label for="product-id">ID</label>
+            <p><input type="text" id="product-id" name="product-id" readonly>
+            </p>
+
             <label for="product-name">Name</label>
             <p><input type="text" id="product-name" name="product-name" >
             </p>
@@ -53,9 +57,19 @@
             
 
             <button id="add-product" type="submit" name="add-product" >Add product</button>
+            <button id="update-product" type="submit" name="update-product" >Update product</button>
 
 </form> 
+</div>
 
+<div class = "col-pc-6 col-xs-12">
+    <formmethod="POST" action="../processes/product-manager.php">
+    <label for="search-id">Enter ID</label>
+    <p><input type="text" id="search-id" name="search-id"></p>
+    <button id="search-id" type="submit" name="search-id" >Search by id</button>        
+    </form>
+
+</div>
 
 </body>
 </html>
