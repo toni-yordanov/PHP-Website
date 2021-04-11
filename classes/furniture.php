@@ -1,6 +1,6 @@
 <?php
 
-class Furniture extends Dbh{
+class Furniture{
 
     //properties
     private $id;
@@ -45,7 +45,6 @@ class Furniture extends Dbh{
     public function getCategory(){
         return $this->category;
     }
-
 
 
 }
