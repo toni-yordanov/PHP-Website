@@ -21,13 +21,15 @@ echo "<a href='logout.php'><button>Logout</button></a>";
 echo "<a href='../processes/delete_user.php'><button>Delete</button></a>";
 ?>
 <div class = "col-pc-6 col-xs-12">
-<div class = "left">
+
 
 <img class="profile-img" src="../pictures/Portrait_Placeholder.png" >
 
+
 </div>
 
-<div class = "right">
+<div class = "col-pc-6 col-xs-12">
+
 
     <form id="update-user" method="POST" action="../processes/update_profile.php">
 
@@ -55,8 +57,8 @@ echo "<a href='../processes/delete_user.php'><button>Delete</button></a>";
         <input type="submit" value="update" name="update">
 
     </form>
-</div>
 
+</div>
 
 </body>
 </html>

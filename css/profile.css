@@ -1,18 +1,12 @@
 @import "style.css";
 
-.left{
-    float: left;
-}
-.right{
-    float: right;
-}
 
-#f-user{
-    margin: 50px 0;
+#update-user{
+    margin: 5%;
 }
 
 .profile-img{
     width: 50%;
     height: auto;
-    margin: 25%;
+    margin: 5%;
 }
