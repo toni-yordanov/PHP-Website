@@ -33,6 +33,9 @@ if(isset($_POST['add-product']))
         echo "An error has ocurred, cannot register user";
     }
 }
+
+
+
 /*
 foreach (getAllFurniture() as $result) {
     echo $result['id'] . '<br>';
@@ -53,12 +56,7 @@ function getFurnitureById($id) {
         $result = $stmt->fetch();
 
 
-        echo $result['id'] . '<br>';
-        echo $result['product_name'] . '<br>';
-        echo $result['price'] . '<br>';
-        echo $result['product_description'] . '<br>';
-        echo $result['material'] . '<br>';
-        echo $result['category'] . '<br>';
+        return $result;
         
     }
     //to insert into the database

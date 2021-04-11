@@ -61,12 +61,36 @@
 
 </form> 
 </div>
+<?php
+if(isset($_POST['search']))
+{
+    include_once('../processes/server.php');
+    include_once('../processes/product-manager.php');
+    $con =  Dbh::connect();
+    $id = ($_POST['search-id']);
+
+    $result = getFurnitureById($id);
+
+    ?>
+    <script>
+        document.getElementById('product-id').value = "<?php echo $result['id'] ?>"
+        document.getElementById('product-name').value = "<?php echo $result['product_name'] ?>"
+        document.getElementById('product-price').value = "<?php echo $result['price'] ?>"
+        document.getElementById('product-description').value = "<?php echo $result['product_description'] ?>"
+        document.getElementById('material').value = "<?php echo $result['material'] ?>"
+        document.getElementById('category').value = "<?php echo $result['category'] ?>"
+    </script>
+    <?php
+    
+}
+?>
+
 
 <div class = "col-pc-6 col-xs-12">
-    <formmethod="POST" action="../processes/product-manager.php">
+    <form method="POST" action="">
     <label for="search-id">Enter ID</label>
     <p><input type="text" id="search-id" name="search-id"></p>
-    <button id="search-id" type="submit" name="search-id" >Search by id</button>        
+    <button id="search" type="submit" name="search" >Search by id</button>        
     </form>
 
 </div>
