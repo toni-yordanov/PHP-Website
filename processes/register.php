@@ -1,6 +1,7 @@
 <?php 
 session_start();
 include_once('server.php');
+include_once('stringOperations.php');
 
 if(isset($_POST['register']))
 {
@@ -34,15 +35,17 @@ if(isset($_POST['register']))
 function insertUser($con,$first_name,$last_name,$email,$phone_nr,$password)
 {
     $query = $con->prepare("
-        INSERT INTO  user (id,first_name,last_name,email,phone_nr,password)
+        INSERT INTO  user (id,first_name,last_name,email,phone_nr,password,rights)
 
-        VALUES(NULL,:first_name,:last_name,:email,:phone_nr,:password)
+        VALUES(NULL,:first_name,:last_name,:email,:phone_nr,:password,:rights)
     ");
+    $rights = "USER";
     $query->bindParam(":first_name",$first_name);
     $query->bindParam(":last_name",$last_name);
     $query->bindParam(":email",$email);
     $query->bindParam(":phone_nr",$phone_nr);
     $query->bindParam(":password",$password);
+    $query->bindParam(":rights",$rights);
     
     return $query->execute();
 }
@@ -51,7 +54,9 @@ function isEmailUnique($email)
 {
     $con =  Dbh::connect();
     $query = $con->prepare("
-        SELECT * FROM user WHERE email=:email
+        SELECT * 
+        FROM user 
+        WHERE email=:email
     ");
     $query->bindParam(":email",$email);
 

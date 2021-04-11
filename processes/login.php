@@ -3,6 +3,7 @@
 session_start();
 
 include_once('server.php');
+include_once('stringOperations.php');
 
 if(isset($_POST['btn-login']))
 {

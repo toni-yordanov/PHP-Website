@@ -44,7 +44,7 @@
     </label>
 
     <div class="register-help">
-        <p id="alreadyAccount"><a href="../html/log-in.html">Do you already have an account?</a></p>
+        <p id="alreadyAccount"><a href="../html/log-in.php">Do you already have an account?</a></p>
     </div>
 
     <div class="clearfix"></div>

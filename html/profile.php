@@ -11,7 +11,15 @@
 <body>
 
 <?php include('menu.html')?>
+<?php 
+session_start();
 
+include_once("../processes/server.php");
+
+echo "Welcome " . $_SESSION['email'];
+echo "<a href='logout.php'><button>Logout</button></a>";
+echo "<a href='../processes/delete_user.php'><button>Delete</button></a>";
+?>
 <div class = "col-pc-6 col-xs-12">
 <div class = "left">
 
@@ -21,42 +29,34 @@
 
 <div class = "right">
 
-<form id="f-user">
-        
-            <label for="user-first-name">First Name</label>
-            <p><input type="text" id="user-first-name" name="user-first-name" >
-            </p>
+    <form id="update-user" method="POST" action="../processes/update_profile.php">
 
-            <label for="user-last-name">Last Name</label>
-            <p><input type="text" id = "user-last-name" name="user-last-name" >
-            </p>
+        <label for="user-first-name">First Name</label>
+        <p><input type="text" name="first_name" value="<?php ?>">
+        </p>
 
-            <label for="user-email">Email</label>
-            <p><input type="text" id="user-email" name="user-email" >
-            </p>
-        
-            <label for="user-phonr">Phone number</label>
-            <p><input type="text" id = "user-phonr" name="user-phonr"></p>
+        <label for="user-last-name">Last Name</label>
+        <p><input type="text" name = "last_name" value="<?php ?>">
+        </p>
 
+        <label for="user-email">Email</label>
+        <p><input type="text" name="email" value="<?php echo $_SESSION['email']?>">
+        </p>
 
-        </form> 
+        <label for="user-phone">Phone number</label>
+        <p><input type="text" name ="phone" value="<?php ?>"></p>
+
+        <label for="password">Password</label>
+        <p><input type="text" name ="phone" value="<?php ?>"></p>
+
+        <label for="repeat_password">Repeat password</label>
+        <p><input type="text" name ="phone" value="<?php ?>"></p>
+
+        <input type="submit" value="update" name="update">
+
+    </form>
 </div>
 
 
 </body>
 </html>
-
-
-
-
-
-<?php 
-session_start();
-
-include_once("../processes/server.php");
-
-echo "Welcome " . $_SESSION['email'];
-echo "<a href='logout.php'>Logout</a>";
-echo "<a href='update.php'>Update</a>";
-echo "<a href='delete.php'>Delete</a>";
-?>

@@ -14,7 +14,7 @@
 <div class="container-center col-pc-4 col-xs-10 bgr-brown" id="log-in">
 
 <h2>Log in</h2>
-<form id="log-in" method="POST" action="../processes/login.php ">
+<form id="log-in" method="POST" action="../processes/login.php">
 
     <label for="Email">Email</label>
     <p><input type="text" name="email" autocapitalize="off" autocorrect="off">
@@ -28,7 +28,7 @@
     </label>
     <div class="log_in-help">
         <p id="forgotPassword"><a href="#">Forgot your password?</a></p>
-        <p id="noAccount"><a href="../html/register.html">I don't have an account</a></p>
+        <p id="noAccount"><a href="../html/register.php">I don't have an account</a></p>
     </div>
 
 </form>

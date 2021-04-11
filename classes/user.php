@@ -1,6 +1,5 @@
 <?php 
-
-class User extends Dbh {
+class User {
     //properties
     private $firstName;
     private $lastName;
