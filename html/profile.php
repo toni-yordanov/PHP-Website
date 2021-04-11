@@ -10,47 +10,44 @@
 </head>
 <body>
 
-<?php include('menu.html')?>
-<?php 
+<?php include('menu.html');
 session_start();
 
 include_once("../processes/server.php");
+include_once("../processes/update_profile.php");
+$result = GetUserDetails($_SESSION['email']);
 
 echo "Welcome " . $_SESSION['email'];
 echo "<a href='logout.php'><button>Logout</button></a>";
 echo "<a href='../processes/delete_user.php'><button>Delete</button></a>";
+
+function GetEmail()
+{
+    return $_SESSION['email'];
+}
 ?>
+
 <div class = "col-pc-6 col-xs-12">
 <div class = "left">
 
 <img class="profile-img" src="../pictures/Portrait_Placeholder.png" >
 
 </div>
-
+<?php ?>
 <div class = "right">
 
     <form id="update-user" method="POST" action="../processes/update_profile.php">
 
         <label for="user-first-name">First Name</label>
-        <p><input type="text" name="first_name" value="<?php ?>">
+        <p><input type="text" name="first_name" value="<?php echo $result['first_name'] ?>">
         </p>
 
         <label for="user-last-name">Last Name</label>
-        <p><input type="text" name = "last_name" value="<?php ?>">
-        </p>
-
-        <label for="user-email">Email</label>
-        <p><input type="text" name="email" value="<?php echo $_SESSION['email']?>">
+        <p><input type="text" name = "last_name" value="<?php echo $result['last_name']?>">
         </p>
 
         <label for="user-phone">Phone number</label>
-        <p><input type="text" name ="phone" value="<?php ?>"></p>
-
-        <label for="password">Password</label>
-        <p><input type="text" name ="phone" value="<?php ?>"></p>
-
-        <label for="repeat_password">Repeat password</label>
-        <p><input type="text" name ="phone" value="<?php ?>"></p>
+        <p><input type="text" name ="phone_nr" value="<?php echo $result['phone_nr']?>"></p>
 
         <input type="submit" value="update" name="update">
 
