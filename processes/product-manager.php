@@ -33,24 +33,33 @@ if(isset($_POST['add-product']))
         echo "An error has ocurred, cannot register user";
     }
 }
+/*
+foreach (getAllFurniture() as $result) {
+    echo $result['id'] . '<br>';
+    echo $result['product_name'] . '<br>';
+    echo $result['price'] . '<br>';
+    echo $result['product_description'] . '<br>';
+    echo $result['material'] . '<br>';
+    echo $result['category'] . '<br>';
+    echo '<br>';
+}*/
 
-
-
-function getFurniterById($id) {
+function getFurnitureById($id) {
         
         $sql = "SELECT * FROM furniture WHERE id = ?";
         $stmt = Dbh::connect()->prepare($sql);
 
         $stmt->execute([$id]);
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetch();
 
-        foreach ($result as $id) {
-            echo $id['id'] . '<br>';
-            echo $id['name'] . '<br>';
-            echo $id['price'] . '<br>';
-            echo $id['description'] . '<br>';
-            echo $id['material'] . '<br>';
-        }
+
+        echo $result['id'] . '<br>';
+        echo $result['product_name'] . '<br>';
+        echo $result['price'] . '<br>';
+        echo $result['product_description'] . '<br>';
+        echo $result['material'] . '<br>';
+        echo $result['category'] . '<br>';
+        
     }
     //to insert into the database
 function addFurniture($con, $name, $price, $description, $material, $category) {
