@@ -20,11 +20,38 @@ if(isset($_POST['btn-login']))
     if(checkLogin($con,$email,$password))
     {
         $_SESSION['email'] = $email;
-        header("Location: ../html/profile.php");
+        if(checkAdmin($con,$email,$password))
+        {
+            header("Location: ../html/inventory.php");
+        }
+        else
+        {
+            header("Location: ../html/profile.php");
+        }
     }
     else
     {
         echo "The username and password are incorrect";
+    }
+}
+
+function checkAdmin($con,$email,$password){
+    $query = $con->prepare("
+    
+        SELECT * FROM user WHERE email=:email AND password=:password AND rights=:right
+    ");
+    $admin = "ADMIN";
+    $query->bindParam(":email",$email);
+    $query->bindParam(":password",$password);
+    $query->bindParam(":right", $admin);
+
+    $query->execute();
+    if($query->rowCount() == 1)
+    {
+        return true;
+    }
+    else {
+        return false;
     }
 }
 
