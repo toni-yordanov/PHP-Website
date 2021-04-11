@@ -1,6 +1,6 @@
 <?php
 
-class Furniture extends Dbh{
+class Furniture{
 
     //properties
     private $id;
