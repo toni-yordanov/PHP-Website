@@ -21,7 +21,6 @@ if(isset($_POST['add-product']))
         </Script>
 
         <?php
-        return;
     }
     
     if(addFurniture($con,$product_name,$product_price,$product_description,$material,$category))
@@ -30,11 +29,101 @@ if(isset($_POST['add-product']))
     }
     else
     {
-        echo "An error has ocurred, cannot register user";
+        ?>
+        <script>
+        alert("An error has ocurred, cannot add product");
+        </Script>
+
+        <?php
     }
 }
 
+if(isset($_POST['update-product']))
+{
+    $con =  Dbh::connect();
+    
+    $item_id = GetItemID();
+    $product_name = stringOperations::cleanString($_POST['product-name']);
+    $product_price = stringOperations::cleanString($_POST['product-price']);
+    $product_description = ($_POST['product-description']);
+    $material = stringOperations::cleanString($_POST['material']);
+    $category = stringOperations::cleanString($_POST['category']);
+    
+    if($item_id < 1)
+    {
+        ?>
+        <script>
+        alert("Select an product");
+        </Script>
+        <?php
+    }
 
+    if($product_name == "" || $product_price == "" || $product_description == "" || $material == "" || $category == "" )
+    {
+        ?>
+        <script>
+        alert("Fill in the fields");
+        </Script>
+
+        <?php
+    }
+    
+    if(updateFurniture($item_id,$product_name,$product_price,$product_description,$material,$category))
+    {
+        ?>
+        <script>
+        alert("Product Updated");
+        </Script>
+
+        <?php
+    }
+    else
+    {
+        ?>
+        <script>
+        alert("An error has ocurred, cannot add product");
+        </Script>
+
+        <?php
+        
+    }
+}
+
+if(isset($_POST['delete-product']))
+{
+    $con =  Dbh::connect();
+    
+    $item_id = GetItemID();
+    
+    if($item_id < 1)
+    {
+        ?>
+        <script>
+        alert("Select an product");
+        </Script>
+        <?php
+    }
+    
+    if(deleteFurniture($item_id))
+    {
+        ?>
+        <script>
+        alert("Product Dleted");
+        </Script>
+
+        <?php
+    }
+    else
+    {
+        ?>
+        <script>
+        alert("An error has ocurred, cannot add product");
+        </Script>
+
+        <?php
+        
+    }
+}
 
 /*
 foreach (getAllFurniture() as $result) {
@@ -46,6 +135,24 @@ foreach (getAllFurniture() as $result) {
     echo $result['category'] . '<br>';
     echo '<br>';
 }*/
+
+function updateFurniture($item_id,$product_name,$product_price,$product_description,$material,$category)
+{
+    $con =  Dbh::connect();
+    $query = $con->prepare("
+    UPDATE furniture
+     SET product_name = :name, price = :price, product_description = :description, material = :material, category = :category 
+    WHERE id=:id
+    ");
+    $query->bindParam(":name", $product_name);
+    $query->bindParam(":price", $product_price);
+    $query->bindParam(":description", $product_description);
+    $query->bindParam(":material", $material);
+    $query->bindParam(":category", $category);
+    $query->bindParam(":id",$item_id);
+
+    return $query->execute();
+}
 
 function getFurnitureById($id) {
         
@@ -83,5 +190,17 @@ function getAllFurniture() {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+ 
+function deleteFurniture($item_id) {
+    $con =  Dbh::connect();
+    $query = $con->prepare("
+    UPDATE furniture
+     SET deleted = TRUE
+    WHERE id=:id
+    ");
+    $query->bindParam(":id",$item_id);
+
+    return $query->execute();
+}   
 
 ?>

@@ -58,16 +58,20 @@
 
             <button id="add-product" type="submit" name="add-product" >Add product</button>
             <button id="update-product" type="submit" name="update-product" >Update product</button>
+            <button id="delete-product" type="submit" name="delete-product" >Delete product</button>
 
 </form> 
 </div>
 <?php
+$item_id = 0;
+
 if(isset($_POST['search']))
 {
     include_once('../processes/server.php');
     include_once('../processes/product-manager.php');
     $con =  Dbh::connect();
     $id = ($_POST['search-id']);
+    $item_id = $id;
 
     $result = getFurnitureById($id);
 
@@ -82,6 +86,10 @@ if(isset($_POST['search']))
     </script>
     <?php
     
+}
+
+function GetItemID(){
+    return  $GLOBALS['item_id'] ;
 }
 ?>
 
