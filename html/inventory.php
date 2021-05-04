@@ -12,9 +12,13 @@
 
 <?php include('menu.html')?>
 
-
+<div class = "col-pc-6 col-xs-12">
 <form id="f-products" method="POST" action="../processes/product-manager.php">
         
+            <label for="product-id">ID</label>
+            <p><input type="text" id="product-id" name="product-id" readonly>
+            </p>
+
             <label for="product-name">Name</label>
             <p><input type="text" id="product-name" name="product-name" >
             </p>
@@ -53,9 +57,51 @@
             
 
             <button id="add-product" type="submit" name="add-product" >Add product</button>
+            <button id="update-product" type="submit" name="update-product" >Update product</button>
+            <button id="delete-product" type="submit" name="delete-product" >Delete product</button>
 
 </form> 
+</div>
+<?php
+$item_id = 0;
 
+if(isset($_POST['search']))
+{
+    include_once('../processes/server.php');
+    include_once('../processes/product-manager.php');
+    $con =  Dbh::connect();
+    $id = ($_POST['search-id']);
+    $item_id = $id;
+
+    $result = getFurnitureById($id);
+
+    ?>
+    <script>
+        document.getElementById('product-id').value = "<?php echo $result['id'] ?>"
+        document.getElementById('product-name').value = "<?php echo $result['product_name'] ?>"
+        document.getElementById('product-price').value = "<?php echo $result['price'] ?>"
+        document.getElementById('product-description').value = "<?php echo $result['product_description'] ?>"
+        document.getElementById('material').value = "<?php echo $result['material'] ?>"
+        document.getElementById('category').value = "<?php echo $result['category'] ?>"
+    </script>
+    <?php
+    
+}
+
+function GetItemID(){
+    return  $GLOBALS['item_id'] ;
+}
+?>
+
+
+<div class = "col-pc-6 col-xs-12">
+    <form method="POST" action="">
+    <label for="search-id">Enter ID</label>
+    <p><input type="text" id="search-id" name="search-id"></p>
+    <button id="search" type="submit" name="search" >Search by id</button>        
+    </form>
+
+</div>
 
 </body>
 </html>
