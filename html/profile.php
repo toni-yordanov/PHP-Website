@@ -51,9 +51,12 @@ function GetEmail()
         <label for="user-phone">Phone number</label>
         <p><input type="text" name ="phone_nr" value="<?php echo $result['phone_nr']?>"></p>
 
-        <input type="submit" value="update" name="update">
-
+        <input type="submit" value="Update" name="update">
+        <input type="submit" value="Update password" name="Update_Password">
+        <input type="submit" value="Update email" name = "Update_Email">
+        
     </form>
+        
 
 </div>
 

@@ -12,7 +12,7 @@
 <!-- START Top page -->
 <div id="home" class="container-full-height img-bgr">
         
-    <?php include('menu.html')?>
+    <?php include('menu.html');?>
     <div class="top flex-container-center">
         <div>
             <h2><span class="almond">Home, sweet home!</span></h2>

@@ -20,6 +20,8 @@ if(isset($_POST['btn-login']))
     if(checkLogin($con,$email,$password))
     {
         $_SESSION['email'] = $email;
+        header("Location: ../html/profile.php");
+        /*
         if(checkAdmin($con,$email,$password))
         {
             header("Location: ../html/inventory.php");
@@ -27,7 +29,7 @@ if(isset($_POST['btn-login']))
         else
         {
             header("Location: ../html/profile.php");
-        }
+        }*/
     }
     else
     {
