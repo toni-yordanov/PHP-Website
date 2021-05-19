@@ -18,7 +18,7 @@ include_once("../processes/update_profile.php");
 $result = GetUserDetails($_SESSION['email']);
 
 echo "Welcome " . $_SESSION['email'];
-echo "<a href='logout.php'><button>Logout</button></a>";
+echo "<a href='../html/logout.php'><button>Logout</button></a>";
 echo "<a href='../processes/delete_user.php'><button>Delete</button></a>";
 
 function GetEmail()

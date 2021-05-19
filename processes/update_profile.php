@@ -5,6 +5,7 @@ include_once('server.php');
 include_once('../html/profile.php');
 include_once('../processes/stringOperations.php');
 
+
 $email = GetEmail();
 $result = GetUserDetails($email);
 
@@ -29,39 +30,12 @@ if(isset($_POST['update']))
             //$_SESSION['email'] = $email;
             header("Location: ../html/profile.php");
         }
-    /*
-    if($password = "" && $repeat_password = "")
-    {
-        $id = $result['id'];
-
-        if(updateDetails($id,$first_name,$last_name,$phone_nr))
-        {
-            //$_SESSION['email'] = $email;
-            header("Location: ../html/profile.php");
-        }
-    }
-    else if($password = "" || $repeat_password = ""){
-        echo "When updating the password both password and repeat password cannot be empty";
-        return;
-    }
-    else {
-        $id = $result['id'];
-
-        if(updateDetailsAndPassword($id,$first_name,$last_name,$phone_nr,$password))
-        {
-            //$_SESSION['email'] = $email;
-            header("Location: ../html/profile.php");
-        }
-    }*/
 }
-else if(isset($_POST['Update_Password']))
+else 
 {
-    
+    header("Location: ../html/index.php");
 }
-else if(isset($_POST['Update_Email']))
-{
 
-}
 
 
 function updateDetails($id,$first_name,$last_name,$phone_nr)

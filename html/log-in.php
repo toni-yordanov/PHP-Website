@@ -27,7 +27,7 @@
         <input type="checkbox" checked="checked" name="showPassword">
     </label>
     <div class="log_in-help">
-        <p id="forgotPassword"><a href="#">Forgot your password?</a></p>
+        <p id="forgotPassword"><a href="../html/reset_password_anonymous_user.php">Forgot your password?</a></p>
         <p id="noAccount"><a href="../html/register.php">I don't have an account</a></p>
     </div>
 
