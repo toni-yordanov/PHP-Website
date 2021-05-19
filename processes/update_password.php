@@ -1,7 +1,8 @@
 <?php 
+require_once("../processes/send_email.php");
+Send_email::Mail('filip.andrei912@gmail.com','subj','as');
 
-
-
+/*
 if(isset($_POST['update_password']))
 {
     
@@ -26,4 +27,5 @@ if(isset($_POST['update_password']))
     $mail->Send();
     
 
-}
+}*/
+
