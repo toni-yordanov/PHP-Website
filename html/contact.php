@@ -31,23 +31,26 @@
 
     <div class="right">
         <h2>Contact us</h2>
-        <form id="f-contact" method="POST" action="#">
+        <form id="f-contact" method="POST" action="../processes/send_email.php">
         
-            <label for="full-name">Full name</label>
-            <p><input type="text" name="contact" value="">
+            <label for="name">Full name</label>
+            <p><input type="text" id="name" name="name" value="">
             </p>
 
             <label for="email">Email</label>
-            <p><input type="text" name="contact" value="" autocapitalize="off" autocorrect="off">
+            <p><input type="text" id="email" name="email" value="" autocapitalize="off" autocorrect="off">
             </p>
         
-            <label for="phone-nr">Phone number</label>
+            <!--
+                <label for="phone-nr">Phone number</label>
             <p><input type="text" name="contact" value=""></p>
+             -->
+            
 
-            <label for="subject">Message</label>
-            <textarea id="message" name="contact" placeholder="Write something.."></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write something.."></textarea>
 
-            <button id="send" type="contact">Send</button>
+            <button id="send-mail" name = "send-mail" type="submit">Send</button>
         </form> 
     </div>
 </div>
