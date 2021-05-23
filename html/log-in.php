@@ -13,25 +13,31 @@
     
 <div class="container-center col-pc-4 col-xs-10 bgr-brown" id="log-in">
 
-<h2>Log in</h2>
-<form id="log-in" method="POST" action="../processes/login.php">
-
+<h1 class="black center-text">Log in</h1>
+<form  method="POST" action="../processes/login.php">
     <label for="Email">Email</label>
+
     <p><input type="text" name="email" autocapitalize="off" autocorrect="off">
     </p>
+
+
     <label for="Password">Password</label>
     <p><input type="password" name="password" value=""></p>
+
+    
     <button id="log-in" type="submit" name="btn-login">Log In</button>
+    
     <label id="showPassword">
         Show password
         <input type="checkbox" checked="checked" name="showPassword">
     </label>
+
     <div class="log_in-help">
         <p id="forgotPassword"><a href="../html/reset_password_anonymous_user.php">Forgot your password?</a></p>
         <p id="noAccount"><a href="../html/register.php">I don't have an account</a></p>
     </div>
-
 </form>
+
 </div>
 
 </body>
