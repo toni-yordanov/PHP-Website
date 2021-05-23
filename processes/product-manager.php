@@ -2,6 +2,7 @@
 
 include_once('server.php');
 include_once('stringOperations.php');
+include('../classes/furniture.php');
 
 if(isset($_POST['add-product']))
 {
@@ -42,7 +43,7 @@ if(isset($_POST['update-product']))
 {
     $con =  Dbh::connect();
     
-    $item_id = GetItemID();
+    $item_id = $_POST['product-id'];
     $product_name = stringOperations::cleanString($_POST['product-name']);
     $product_price = stringOperations::cleanString($_POST['product-price']);
     $product_description = ($_POST['product-description']);
@@ -93,7 +94,7 @@ if(isset($_POST['delete-product']))
 {
     $con =  Dbh::connect();
     
-    $item_id = GetItemID();
+    $item_id = $_POST['product-id'];
     
     if($item_id < 1)
     {
@@ -141,7 +142,7 @@ function updateFurniture($item_id,$product_name,$product_price,$product_descript
     $con =  Dbh::connect();
     $query = $con->prepare("
     UPDATE furniture
-     SET product_name = :name, price = :price, product_description = :description, material = :material, category = :category 
+     SET name = :name, price = :price, description = :description, material = :material, category = :category 
     WHERE id=:id
     ");
     $query->bindParam(":name", $product_name);
@@ -169,7 +170,7 @@ function getFurnitureById($id) {
     //to insert into the database
 function addFurniture($con, $name, $price, $description, $material, $category) {
             $query = $con->prepare("
-            INSERT INTO  furniture (id,product_name,price,product_description,material,category)
+            INSERT INTO  furniture (id,name,price,description,material,category)
 
             VALUES(NULL,:product_name,:price,:product_description,:material,:category)
         ");
@@ -189,6 +190,24 @@ function getAllFurniture() {
 
         $stmt->execute();
         return $stmt->fetchAll();
+    }
+
+     function getFurnitureByCategory($category) {
+        
+        $sql = "SELECT id, name, price , description, material, category FROM furniture where category = :category and deleted = 0";
+        $stmt = Dbh::connect()->prepare($sql);
+        $stmt ->bindParam(":category", $category);
+        $i = 0;
+        $stmt->execute();
+        foreach ($stmt as $row) {
+            $result[$i] = new Furniture($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],);
+            $i++;
+        }
+        
+        
+
+        return $result;
+
     }
  
 function deleteFurniture($item_id) {

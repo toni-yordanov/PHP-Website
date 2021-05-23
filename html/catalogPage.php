@@ -15,7 +15,11 @@
 <body>
 <!-- START Top page -->
 
-<?php include('menu.html')?>
+<?php 
+        include('menu.html');
+        include_once('../processes/product-manager.php');
+        include_once('../classes/furniture.php');
+?>
     
 <div class="top-img col-pc-12 col-xs-">
     <div class="column">
@@ -142,7 +146,14 @@
             <!-- end of single product -->
 
             <!-- single product -->
-            <div class="product">
+            <?php
+                $category = "Kitchen";
+                $products = getFurnitureByCategory($category);
+
+                
+                foreach($products as $product){
+
+                  ?>  <div class="product">
                 <div class="product-content">
                     <div class="product-img">
                         <img src="../images/catalogPage/garden.jpg" alt="product image">
@@ -156,9 +167,9 @@
                 </div>
                 <div class="product-info">
                     <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
+                        <a href="#" class="product-name"><h2 class="sm-title" id="name"><?php echo $product->getName();?></h2></a>
                     </div>
-                    <p class="product-price">€150.43</p>
+                    <p class="product-price" id="price"><?php echo $product->getPrice();?></p>
                     <!-- <p class="product-price">€133.43</p> -->
                 </div>
                 <!--
@@ -167,6 +178,10 @@
                 </div>
                 -->
             </div>
+            <?php
+                }
+              
+            ?>
             <!-- end of single product -->
 
             <!-- single product -->

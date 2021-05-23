@@ -9,6 +9,7 @@ class Furniture{
     private $description;
     private $material;
     private $category;
+    private $deleted;
 
     //constructor
     public function __construct($id, $name, $price, $description, $material, $category)
@@ -19,6 +20,7 @@ class Furniture{
         $this -> description = $description;
         $this -> material = $material;
         $this -> category = $category;
+        $this -> deleted = false;
     }
 
     //methods
@@ -45,7 +47,10 @@ class Furniture{
     public function getCategory(){
         return $this->category;
     }
-
-
+    
+    public function getDeleted()
+    {
+        return $this->deleted;
+    }
 }
 ?>

@@ -88,9 +88,7 @@ if(isset($_POST['search']))
     
 }
 
-function GetItemID(){
-    return  $GLOBALS['item_id'] ;
-}
+
 ?>
 
 
