@@ -11,18 +11,18 @@
 
 
 <body>
-    <div class="container-center col-pc-4 col-xs-10 bgr-brown" id="log-in">
-        <h2>Reset your password</h2>
-        <p>You will receive an email with the instructions for resetting your password</p>
+    <?php include('menu.html');?>
 
+    <div class="container-center col-pc-4 col-xs-10 bgr-brown reset_password">
+        <h1 class="black center-text">Reset your password</h1>
+        <p class="info">You will receive an email with the instructions for resetting your password</p>
 
         <form action="../processes/update_password.php" method="POST">
             <label for="email">Email</label>
             <input type="text" name="email">
-            <input type="submit" name="update_password" value="Get email">
+            <input class = "button" type="submit" name="update_password" value="Get email">
         </form>
     </div>
-
 
 
 

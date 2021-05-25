@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="EN">
 
@@ -7,11 +9,11 @@
     <title>Meubilair</title>
     <link rel="stylesheet" href="../css/profile.css">
     <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+    <script defer src="../js/profile.js"></script>
 </head>
 <body>
 
-<?php include('menu.html');
-session_start();
+<?php  include('menu.html');
 
 include_once("../processes/server.php");
 include_once("../processes/update_profile.php");
@@ -51,13 +53,10 @@ function GetEmail()
         <label for="user-phone">Phone number</label>
         <p><input type="text" name ="phone_nr" value="<?php echo $result['phone_nr']?>"></p>
 
-        <input type="submit" value="Update" name="update">
-        <input type="submit" value="Update password" name="Update_Password">
-        <input type="submit" value="Update email" name = "Update_Email">
-        
+        <input type="submit" value="Update information" name="update">
     </form>
-        
-
+    <input type="submit" value="Update password" name="update_password">
+    <input type="submit" value="Update email" name = "update_email">
 </div>
 
 </body>

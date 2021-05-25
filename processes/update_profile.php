@@ -31,10 +31,6 @@ if(isset($_POST['update']))
             header("Location: ../html/profile.php");
         }
 }
-else 
-{
-    header("Location: ../html/index.php");
-}
 
 
 
@@ -53,23 +49,6 @@ function updateDetails($id,$first_name,$last_name,$phone_nr)
 
     return $query->execute();
 }
-/*
-function updateDetailsAndPassword($id,$first_name,$last_name,$phone_nr,$password)
-{
-    $con =  Dbh::connect();
-    $query = $con->prepare("
-    UPDATE user
-    SET first_name=:first_name, last_name=:last_name, phone_nr=:phone_nr, password=:password
-    WHERE id=:id
-    ");
-    $query->bindParam(":first_name",$first_name);
-    $query->bindParam(":last_name",$last_name);
-    $query->bindParam(":phone_nr",$phone_nr);
-    $query->bindParam(":id",$id);
-    $query->bindParam(":password",$password);
-
-    return $query->execute();
-}*/
 
 function GetUserDetails($var)
 {

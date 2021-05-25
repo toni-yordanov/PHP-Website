@@ -52,7 +52,8 @@ function checkAdmin($con,$email,$password){
     {
         return true;
     }
-    else {
+    else 
+    {
         return false;
     }
 }
