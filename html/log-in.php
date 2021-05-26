@@ -16,15 +16,11 @@
     <h1 class="black center-text">Log in</h1>
     <form  method="POST" action="../processes/login.php">
         <label for="Email">Email</label>
-
-        <p><input type="text" name="email" autocapitalize="off" autocorrect="off">
-        </p>
-
+        <p><input type="text" name="email" autocapitalize="off" autocorrect="off"></p>
 
         <label for="Password">Password</label>
         <p><input type="password" name="password" value=""></p>
 
-        
         <button id="log-in" type="submit" name="btn-login">Log In</button>
         
         <label id="showPassword">

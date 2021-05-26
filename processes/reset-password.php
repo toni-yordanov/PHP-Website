@@ -1,5 +1,6 @@
 <?php  
-require_once("../processes/server.php");
+include_once("../processes/server.php");
+include_once("stringOperations.php");
 
 
 if (isset($_POST["reset-password-submit"])) 
@@ -70,7 +71,7 @@ function update_password($selector, $validator, $password)
             else
             {
                 $sqlu = $con->prepare("UPDATE user SET password=:newPassword WHERE email=:email;");
-                $newPassword = md5($password);
+                $newPassword = stringOperations::cleanPassword($password);
                 $sqlu->bindParam(":newPassword", $newPassword);
                 $sqlu->bindParam(":email", $tokenEmail);
                 $sqlu->execute();

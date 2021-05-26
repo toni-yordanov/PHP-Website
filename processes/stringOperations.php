@@ -1,4 +1,5 @@
 <?php
+include('../classes/Exceptions/UserExceptions.php');
 class stringOperations{
     public static function cleanString($string)
     {
@@ -20,16 +21,27 @@ class stringOperations{
         $pattern = "/^[a-z .,'-]+$/";
         return preg_match($pattern,$string);
     }
-    /*
-    public static function checkPassword($string)
+    
+    public static function checkPassword($password)
     {
-        $pattern = "/^$/";
-        return preg_match($pattern,$string);
-    }*/
+        if(preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", 
+        $password) != 1)
+        {
+            throw new InvalidPasswordException("The password that you have entered is
+             invalid. The password has to be at least 8 characters long and it must contain
+             at least: one number and one special character: @$!%*#?&");
+        }
+        return true;
+    }
     public static function checkEmail($string)
     {
-        return filter_var($string, FILTER_VALIDATE_EMAIL);
+        if(filter_var($string, FILTER_VALIDATE_EMAIL) == false)
+        {
+            throw new InvalidEmailException("The entered email is invalid.");
+        }
+        return true;
     }
+
     public static function checkPhone_nr($string)
     {
         $pattern = "/^$/";

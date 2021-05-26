@@ -16,27 +16,17 @@ if(isset($_POST['btn-login']))
         echo "No field can be left empty";
         return;
     }
-
-    if(checkLogin($con,$email,$password))
+    if(checkLogin($email,$password))
     {
         $_SESSION['email'] = $email;
         header("Location: ../html/profile.php");
-        /*
-        if(checkAdmin($con,$email,$password))
-        {
-            header("Location: ../html/inventory.php");
-        }
-        else
-        {
-            header("Location: ../html/profile.php");
-        }*/
     }
     else
     {
         echo "The username and password are incorrect";
     }
 }
-
+/*
 function checkAdmin($con,$email,$password){
     $query = $con->prepare("
     
@@ -56,10 +46,11 @@ function checkAdmin($con,$email,$password){
     {
         return false;
     }
-}
+}*/
 
-function checkLogin($con,$email,$password)
+function checkLogin($email,$password)
 {
+    $con = Dbh::connect();
     $query = $con->prepare("
     
         SELECT * FROM user WHERE email=:email AND password=:password
