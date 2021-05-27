@@ -1,10 +1,10 @@
 <?php 
-$user = $_SESSION["email"];
-if($user == null){
-    include_once("menu.php");
+if(isset($_SESSION["email"]))
+{
+    include_once("loged-in-menu.php");
 }
 else{
-    include_once("loged-in-menu.php");
+    include_once("menu.php");
 }
 
 ?>
