@@ -67,38 +67,44 @@
                 $category = $_GET['varname'];
                 $products = getFurnitureByCategory($category);
 
-                
-                foreach($products as $product){
+                if($products != null){
+                    foreach($products as $product){
 
-                  ?>  <div class="product">
-                <div class="product-content">
-                    <div class="product-img">
-                        <img src="../images/catalogPage/garden.jpg" alt="product image">
-                    </div>
-                    <div class="product-btns">
-                        <button type="button" class="btn-wish">
-                            wishlist
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title" id="name"><?php echo $product->getName();?></h2></a>
-                    </div>
-                    <p class="product-price" id="price"><?php echo $product->getPrice();?></p>
-                    <!-- <p class="product-price">€133.43</p> -->
-                </div>
-                <!--
-                <div class="off-info">
-                    <h2 class= "sm-title">25% off</h2>
-                </div>
-                -->
-            </div>
-            <?php
+                        ?>  <div class="product">
+                      <div class="product-content">
+                          <div class="product-img">
+                              <img src="../images/catalogPage/garden.jpg" alt="product image">
+                          </div>
+                          <div class="product-btns">
+                              <button type="button" class="btn-wish">
+                                  wishlist
+                                  <span><i class = "fas fa-plus"></i></span>
+                              </button>
+                          </div>
+                      </div>
+                      <div class="product-info">
+                          <div class="product-info-top">
+                              <a href="#" class="product-name"><h2 class="sm-title" id="name"><?php echo $product->getName();?></h2></a>
+                          </div>
+                          <p class="product-price" id="price"><?php echo $product->getPrice();?></p>
+                          <!-- <p class="product-price">€133.43</p> -->
+                      </div>
+                      <!--
+                      <div class="off-info">
+                          <h2 class= "sm-title">25% off</h2>
+                      </div>
+                      -->
+                  </div>
+                  <?php
+                      }
+                    
+                  
                 }
-              
-            ?>
+                else
+                {
+                    echo "No products here";
+                }
+                ?>
             <!-- end of single product -->
 
 

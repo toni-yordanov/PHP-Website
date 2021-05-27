@@ -199,13 +199,14 @@ function getAllFurniture() {
         $stmt ->bindParam(":category", $category);
         $i = 0;
         $stmt->execute();
+        $result = null;
         foreach ($stmt as $row) {
             $result[$i] = new Furniture($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],);
             $i++;
         }
         
         
-
+        
         return $result;
 
     }
