@@ -1,7 +1,7 @@
 <?php 
+include_once("../processes/server.php");
 
 
-    
 if(isset($_SESSION["email"]))
 {
     

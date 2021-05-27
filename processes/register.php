@@ -1,13 +1,13 @@
 <?php 
 session_start();
-include_once('server.php');
+include_once('userQueries.php');
 include_once('stringOperations.php');
 include_once('../classes/user.php');
 include_once('../classes/Exceptions/UserExceptions.php');
 
 if(isset($_POST['register']))
 {
-    $con =  Dbh::connect();
+    //$con =  Dbh::connect();
     $first_name = stringOperations::cleanString($_POST['first_name']);
     $last_name = stringOperations::cleanString($_POST['last_name']);
     $email = stringOperations::cleanString($_POST['email']);
@@ -21,14 +21,14 @@ if(isset($_POST['register']))
         echo "No field can be left empty";
         return;
     }
-    if(isEmailUnique($email))
+    if(userQueries::IsEmailUnique($email))
     {
         if($password == $passwordMatch)
         {
             try 
             {
                 $user = new User($first_name, $last_name, $email, $phone_nr, $password, $rights);
-                insertUser($user);
+                userQueries::InsertUser($user);
                 $_SESSION['email'] = $email;
                 header("Location: ../html/profile.php");    //redirects user to profile.php
             } 
@@ -60,51 +60,7 @@ if(isset($_POST['register']))
         echo "Email already is in use";
 }
 
-function insertUser(User $user)
-{
-    $con = Dbh::connect();
-    $query = $con->prepare("
-        INSERT INTO  user (id,first_name,last_name,email,phone_nr,password,rights)
 
-        VALUES(NULL,:first_name,:last_name,:email,:phone_nr,:password,:rights)
-    ");
-    $firstName = $user->getFirstName();
-    $lastName = $user->getLastName();
-    $email = $user->getEmail();
-    $phoneNumber = $user->getPhone_number();
-    $password = $user->getPassword();
-    $rights = $user->getRights();
 
-    $query->bindParam(":first_name", $firstName);
-    $query->bindParam(":last_name", $lastName);
-    $query->bindParam(":email", $email);
-    $query->bindParam(":phone_nr", $phoneNumber);
-    $query->bindParam(":password", $password);
-    $query->bindParam(":rights", $rights);
-    
-    return $query->execute();
-}
 
-function isEmailUnique($email)
-{
-    $con =  Dbh::connect();
-    $query = $con->prepare("
-        SELECT * 
-        FROM user 
-        WHERE email=:email
-    ");
-    $query->bindParam(":email",$email);
-
-    $query->execute();
-
-    //check how many rows are returned
-    if($query->rowCount() == 0)
-    {
-        return true;
-    }
-    else 
-    {
-        return false;
-    }
-}
 ?>

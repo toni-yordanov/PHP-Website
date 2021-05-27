@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once('server.php');
+require_once('userQueries.php');
 require_once('stringOperations.php');
 
 //declare vars 
@@ -16,11 +16,11 @@ if(isset($_POST['reset-password']))
     
     if(CheckInput($email,$password,$newPassword,$newPasswordRepeat))
     {
-        if(checkLogin($email, $password))
+        if(UserQueries::CheckLogin($email, $password))
         {
            if($password != $newPassword)
            {
-                UpdatePassword($email, $newPassword);
+                userQueries::UpdatePassword($email, $newPassword);
                 session_destroy();
                 header("Location: ../html/log-in.php");
                 //script alert bla bla bla 
@@ -36,29 +36,6 @@ if(isset($_POST['reset-password']))
     }
 }
 
-
-
-function checkLogin($email,$password)
-{
-    $con =  Dbh::connect();
-    $query = $con->prepare("
-    
-        SELECT * FROM user WHERE email=:email AND password=:password
-    ");
-    $query->bindParam(":email",$email);
-    $query->bindParam(":password",$password);
-
-    $query->execute();
-
-    //check how many rows are returned
-    if($query->rowCount() == 1)
-    {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
 function CheckInput($email, $password, $newPassword, $newPasswordRepeat)
 {
     //in case of an error 
@@ -89,14 +66,5 @@ function CheckInput($email, $password, $newPassword, $newPasswordRepeat)
         return false;
     }
     return true;
-}
-function UpdatePassword($email, $newPassword)
-{
-    $con = Dbh::connect();
-    $sql = $con->prepare("
-        UPDATE user SET password=:newPassword WHERE email = '$email';
-    ");
-    $sql->bindParam(":newPassword", $newPassword);
-    $sql->execute();
 }
 ?>

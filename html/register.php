@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<?php include('menu.html');?>
+<?php include('menus.php');?>
 
 <div class="container-center col-pc-4 col-xs-10 bgr-brown register">
     <h1>Register</h1>

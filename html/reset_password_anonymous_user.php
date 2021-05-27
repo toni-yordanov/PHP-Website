@@ -11,7 +11,7 @@
 
 
 <body>
-    <?php include('menu.html');?>
+    <?php include('menus.php');?>
 
     <div class="container-center col-pc-4 col-xs-10 bgr-brown reset_password">
         <h1 class="black center-text">Reset your password</h1>

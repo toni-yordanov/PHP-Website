@@ -27,7 +27,7 @@
                             <li><a href="catalogPage.php?varname=<?php echo "Living room" ?>">Living room</a></li>
                             <li><a href="contact.php">Contact</a></li>
                             <li><a href="inventory.php">Inventory</a></li>
-                            <li><a href="../processes//logout.php">Logout</a></li>
+                            <li><a href="../processes/logout.php">Logout</a></li>
                         </ul>
                     </nav>
                 <a class="toggle-nav" href="#"><i class="fas fa-bars"></i></a>

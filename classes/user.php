@@ -1,6 +1,6 @@
 <?php 
-require_once("Exceptions/UserExceptions.php");
-require_once("../processes/stringOperations.php");
+include_once("Exceptions/UserExceptions.php");
+include_once("../processes/stringOperations.php");
 class User {
     //properties
     private $firstName;

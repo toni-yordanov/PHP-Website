@@ -2,7 +2,7 @@
 require_once("../processes/send_email.php");
 require_once("../processes/server.php");
 
-if(findUser($_POST["email"]) == false)
+if(userQueries::FindUser($_POST["email"]) == false)
 {
     echo"There is no user with this email";
 }
@@ -21,8 +21,8 @@ else
         
 
         $userEmail = $_POST["email"];
-        deleteAnyExistentToken($userEmail);
-        createToken($userEmail, $selector, $token, $expires);
+        userQueries::DeleteAnyExistentToken($userEmail);
+        userQueries::CreateToken($userEmail, $selector, $token, $expires);
         $message = '<p>We received a request for reseting your password.</p></br>';
         $message .= '<p>Here is the link for resetting it:</p></br>';
         $message .= '<a href ="' . $url . '">'.$url.'</a>';
@@ -39,35 +39,5 @@ else
 }
 
 
-function deleteAnyExistentToken($email)
-{
-    $con = Dbh::connect();
-    $sql = $con->prepare("DELETE FROM pwdReset WHERE pwdResetEmail=:email");
-    $sql->bindParam(":email", $email);
-    return $sql->execute();
-}
-function createToken($email, $selector, $token, $expires)
-{
-    $expires = date("U") + 1200;//set expire date in 20 minutes
-    $hashToken = password_hash($token, PASSWORD_DEFAULT);
-    $con = Dbh::connect();
-    $sql = $con->prepare("INSERT INTO pwdReset
-    (pwdResetEmail, pwdResetSelector, pwdResetToken, pwdResetExpires)
-    VALUES(:email, :selector, :token, $expires);");
-    $sql->bindParam(":email", $email);
-    $sql->bindParam(":selector", $selector);
-    $sql->bindParam(":token", $hashToken);
-    $sql->execute();
-}
-function findUser($email)
-{
-    $con = Dbh::connect();
-    $sql = $con->prepare("SELECT * FROM user WHERE email=:email");
-    $sql->bindParam(":email", $email);
-    $sql->execute();
 
-    if($sql->fetchAll() != false)
-    {
-        return true;
-    }
-}
+
