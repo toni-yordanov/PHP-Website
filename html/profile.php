@@ -14,7 +14,6 @@
 <body>
 
 <?php include('menus.php');
-session_start();
 
 include_once("../processes/server.php");
 include_once("../processes/update_profile.php");

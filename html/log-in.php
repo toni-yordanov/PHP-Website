@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<?php include('menu.html');?>
+<?php include('menus.php');?>
 <div class="container-center col-pc-4 col-xs-10 bgr-brown" id="log-in">
     <h1 class="black center-text">Log in</h1>
     <form  method="POST" action="../processes/login.php">
