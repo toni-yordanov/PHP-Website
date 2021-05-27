@@ -31,7 +31,7 @@
 
     <div class="right">
         <h2>Contact us</h2>
-        <form id="f-contact" method="POST" action="../processes/send_email.php">
+        <form id="f-contact" method="POST" action="../processes/">
         
             <label for="name">Full name</label>
             <p><input type="text" id="name" name="name" value="">

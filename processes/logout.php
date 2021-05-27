@@ -1,7 +1,7 @@
 <?php 
-//session start call is needed beofer destroying
+//session start call is needed before destroying
 session_start();
 session_destroy();
 
-header("Location: ../html/index.php");
+header('Location: ../html/index.php');
 ?>
