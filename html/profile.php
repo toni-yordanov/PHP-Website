@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="EN">
 
@@ -7,6 +9,7 @@
     <title>Meubilair</title>
     <link rel="stylesheet" href="../css/profile.css">
     <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+    <script defer src="../js/profile.js"></script>
 </head>
 <body>
 
@@ -18,7 +21,7 @@ include_once("../processes/update_profile.php");
 $result = GetUserDetails($_SESSION['email']);
 
 echo "Welcome " . $_SESSION['email'];
-echo "<a href='logout.php'><button>Logout</button></a>";
+echo "<a href='../processes/logout.php'><button>Logout</button></a>";
 echo "<a href='../processes/delete_user.php'><button>Delete</button></a>";
 
 function GetEmail()
@@ -51,13 +54,9 @@ function GetEmail()
         <label for="user-phone">Phone number</label>
         <p><input type="text" name ="phone_nr" value="<?php echo $result['phone_nr']?>"></p>
 
-        <input type="submit" value="Update" name="update">
-        <input type="submit" value="Update password" name="Update_Password">
-        <input type="submit" value="Update email" name = "Update_Email">
-        
+        <input type="submit" value="Update information" name="update">
     </form>
-        
-
+    <input type="submit" value="Update password" name="update_password">
 </div>
 
 </body>

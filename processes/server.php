@@ -15,10 +15,6 @@ class Dbh{
         } catch(PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
         }
-        /* finally
-        {
-            $conn = null;
-        }*/
     }
 
 

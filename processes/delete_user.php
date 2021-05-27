@@ -4,7 +4,7 @@ include_once('server.php');
 
 removeUser();
 session_destroy();
-header("Location: index.php");
+header("Location: ../html/index.php");
 
 function removeUser()
 {

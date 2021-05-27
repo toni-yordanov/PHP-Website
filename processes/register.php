@@ -2,6 +2,8 @@
 session_start();
 include_once('server.php');
 include_once('stringOperations.php');
+include_once('../classes/user.php');
+include_once('../classes/Exceptions/UserExceptions.php');
 
 if(isset($_POST['register']))
 {
@@ -10,8 +12,9 @@ if(isset($_POST['register']))
     $last_name = stringOperations::cleanString($_POST['last_name']);
     $email = stringOperations::cleanString($_POST['email']);
     $phone_nr = stringOperations::cleanString($_POST['phone_nr']);
-    $password = stringOperations::cleanPassword($_POST['password']);
-    $passwordMatch = stringOperations::cleanPassword($_POST['passwordMatch']);
+    $password = $_POST['password'];
+    $passwordMatch = $_POST['passwordMatch'];
+    $rights = "USER";
 
     if($first_name == "" || $last_name == "" || $email == "" || $phone_nr == "" || $password == "" || $passwordMatch == "")
     {
@@ -20,32 +23,64 @@ if(isset($_POST['register']))
     }
     if(isEmailUnique($email))
     {
-        if($password == $passwordMatch && insertUser($con,$first_name,$last_name,$email,$phone_nr,$password))
+        if($password == $passwordMatch)
         {
-            $_SESSION['email'] = $email;
-            header("Location: ../html/profile.php");    //redirects user to profile.php
+            try 
+            {
+                $user = new User($first_name, $last_name, $email, $phone_nr, $password, $rights);
+                insertUser($user);
+                $_SESSION['email'] = $email;
+                header("Location: ../html/profile.php");    //redirects user to profile.php
+            } 
+            catch (InvalidEmailException $ex) 
+            {
+                echo $ex->getMessage();
+            }
+            catch (InvalidPhoneNumberException $ex) 
+            {
+                echo $ex->getMessage();
+            }
+            catch (InvalidNameException $ex) 
+            {
+                echo $ex->getMessage();
+            }
+            catch (InvalidPasswordException $ex) 
+            {
+                echo $ex->getMessage();
+            }
+            catch (InvalidRightsException $ex) 
+            {
+                echo $ex->getMessage();
+            }
         }
         else
-            echo "An error has ocurred, cannot register user";
+            echo "Passwords do not match";
     }
     else
         echo "Email already is in use";
 }
 
-function insertUser($con,$first_name,$last_name,$email,$phone_nr,$password)
+function insertUser(User $user)
 {
+    $con = Dbh::connect();
     $query = $con->prepare("
         INSERT INTO  user (id,first_name,last_name,email,phone_nr,password,rights)
 
         VALUES(NULL,:first_name,:last_name,:email,:phone_nr,:password,:rights)
     ");
-    $rights = "USER";
-    $query->bindParam(":first_name",$first_name);
-    $query->bindParam(":last_name",$last_name);
-    $query->bindParam(":email",$email);
-    $query->bindParam(":phone_nr",$phone_nr);
-    $query->bindParam(":password",$password);
-    $query->bindParam(":rights",$rights);
+    $firstName = $user->getFirstName();
+    $lastName = $user->getLastName();
+    $email = $user->getEmail();
+    $phoneNumber = $user->getPhone_number();
+    $password = $user->getPassword();
+    $rights = $user->getRights();
+
+    $query->bindParam(":first_name", $firstName);
+    $query->bindParam(":last_name", $lastName);
+    $query->bindParam(":email", $email);
+    $query->bindParam(":phone_nr", $phoneNumber);
+    $query->bindParam(":password", $password);
+    $query->bindParam(":rights", $rights);
     
     return $query->execute();
 }
