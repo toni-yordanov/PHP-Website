@@ -12,7 +12,7 @@
 <!-- START Top page -->
 <div id="home" class="">
         
-<?php include('menu.html')?>
+<?php include('menus.php');?>
 <!-- END Top page -->
 <!-- START Product-->
 <div class=" container-product">

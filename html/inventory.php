@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<?php include('menu.html')?>
+<?php include('menus.php');?>
 
 <div class = "col-pc-6 col-xs-12">
 <form id="f-products" method="POST" action="../processes/product-manager.php">

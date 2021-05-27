@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<?php include('menu.html');
+<?php include('menus.php');
 session_start();
 
 include_once("../processes/server.php");

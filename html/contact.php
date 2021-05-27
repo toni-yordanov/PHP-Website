@@ -11,7 +11,7 @@
 <body>
 
 <!-- START Top page -->
-<?php include('menu.html')?>
+<?php include('menus.php')?>
 <!-- END Top page -->
 
 

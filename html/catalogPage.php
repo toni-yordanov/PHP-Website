@@ -16,7 +16,7 @@
 <!-- START Top page -->
 
 <?php 
-        include('menu.html');
+        include('menus.php');
         include_once('../processes/product-manager.php');
         include_once('../classes/furniture.php');
 ?>
@@ -61,93 +61,10 @@
     
     <div class="products col-pc-10 col-xs-12">
         <div class = "product-items">
-            <!-- single product -->
-            <div class="product">
-                <div class="product-content">
-                    <div class="product-img">
-                        <img src="../images/catalogPage/garden.jpg" alt="product image">
-                    </div>
-                    <div class="product-btns">
-                        <button type="button" class="btn-wish">
-                            wishlist
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
-                    </div>
-                    <p class="product-price">€150.43</p>
-                    <!-- <p class="product-price">€133.43</p> -->
-                </div>
-                <!--
-                <div class="off-info">
-                    <h2 class= "sm-title">25% off</h2>
-                </div>
-                -->
-            </div>
-            <!-- end of single product -->
 
-            <!-- single product -->
-            <div class="product">
-                <div class="product-content">
-                    <div class="product-img">
-                        <img src="../images/catalogPage/garden.jpg" alt="product image">
-                    </div>
-                    <div class="product-btns">
-                        <button type="button" class="btn-wish">
-                            wishlist
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
-                    </div>
-                    <p class="product-price">€150.43</p>
-                    <!-- <p class="product-price">€133.43</p> -->
-                </div>
-                <!--
-                <div class="off-info">
-                    <h2 class= "sm-title">25% off</h2>
-                </div>
-                -->
-            </div>
-            <!-- end of single product -->
-
-            <!-- single product -->
-            <div class="product">
-                <div class="product-content">
-                    <div class="product-img">
-                        <img src="../images/catalogPage/garden.jpg" alt="product image">
-                    </div>
-                    <div class="product-btns">
-                        <button type="button" class="btn-wish">
-                            wishlist
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
-                    </div>
-                    <p class="product-price">€150.43</p>
-                    <!-- <p class="product-price">€133.43</p> -->
-                </div>
-                <!--
-                <div class="off-info">
-                    <h2 class= "sm-title">25% off</h2>
-                </div>
-                -->
-            </div>
-            <!-- end of single product -->
-
-            <!-- single product -->
-            <?php
-                $category = "Kitchen";
+<!-- single product -->
+<?php
+                $category = $_GET['varname'];
                 $products = getFurnitureByCategory($category);
 
                 
@@ -184,120 +101,10 @@
             ?>
             <!-- end of single product -->
 
-            <!-- single product -->
-            <div class="product">
-                <div class="product-content">
-                    <div class="product-img">
-                        <img src="../images/catalogPage/garden.jpg" alt="product image">
-                    </div>
-                    <div class="product-btns">
-                        <button type="button" class="btn-wish">
-                            wishlist
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
-                    </div>
-                    <p class="product-price">€150.43</p>
-                    <!-- <p class="product-price">€133.43</p> -->
-                </div>
-                <!--
-                <div class="off-info">
-                    <h2 class= "sm-title">25% off</h2>
-                </div>
-                -->
-            </div>
-            <!-- end of single product -->
 
-            <!-- single product -->
-            <div class="product">
-                <div class="product-content">
-                    <div class="product-img">
-                        <img src="../images/catalogPage/garden.jpg" alt="product image">
-                    </div>
-                    <div class="product-btns">
-                        <button type="button" class="btn-wish">
-                            wishlist
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
-                    </div>
-                    <p class="product-price">€150.43</p>
-                    <!-- <p class="product-price">€133.43</p> -->
-                </div>
-                <!--
-                <div class="off-info">
-                    <h2 class= "sm-title">25% off</h2>
-                </div>
-                -->
-            </div>
-            <!-- end of single product -->
 
-            <!-- single product -->
-            <div class="product">
-                <div class="product-content">
-                    <div class="product-img">
-                        <img src="../images/catalogPage/garden.jpg" alt="product image">
-                    </div>
-                    <div class="product-btns">
-                        <button type="button" class="btn-wish">
-                            wishlist
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
-                    </div>
-                    <p class="product-price">€150.43</p>
-                    <!-- <p class="product-price">€133.43</p> -->
-                </div>
-                <!--
-                <div class="off-info">
-                    <h2 class= "sm-title">25% off</h2>
-                </div>
-                -->
-            </div>
-            <!-- end of single product -->
 
-            <!-- single product -->
-            <div class="product">
-                <div class="product-content">
-                    <div class="product-img">
-                        <img src="../images/catalogPage/garden.jpg" alt="product image">
-                    </div>
-                    <div class="product-btns">
-                        <button type="button" class="btn-wish">
-                            wishlist
-                            <span><i class = "fas fa-plus"></i></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="product-info-top">
-                        <a href="#" class="product-name"><h2 class="sm-title">Red towel</h2></a>
-                    </div>
-                    <p class="product-price">€150.43</p>
-                    <!-- <p class="product-price">€133.43</p> -->
-                </div>
-                <!--
-                <div class="off-info">
-                    <h2 class= "sm-title">25% off</h2>
-                </div>
-                -->
-            </div>
-            <!-- end of single product -->
-        </div>
-    </div>
-</div>
+
 
 
 </body>

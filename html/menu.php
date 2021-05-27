@@ -11,16 +11,16 @@
             <div class="col-pc-4 col-xs-9">
                 <div class="site-branding padding-left-right">
                     <img alt="logo" src="../pictures/logo.png">
-                    <p>Me<span class="bone">ubilair</span></p>
+                    <p ><a href="index.php">Me<span class="bone">ubilair</span></a></p>
                 </div>
             </div>
             <div class="col-pc-8 col-xs-3">
                     <nav class="menu">
                         <ul class="active">
                             <li><a href="index.php" class="current">Home</a></li>
-                            <li><a href="catalogPage.php">Bedroom</a></li>
-                            <li><a href="catalogPage.php">Bathroom</a></li>
-                            <li><a href="catalogPage.php">Garden</a></li>
+                            <li><a href="catalogPage.php?varname=<?php echo "Bedroom" ?>">Bedroom</a></li>
+                            <li><a href="catalogPage.php?varname=<?php echo "Bathroom" ?>">Bathroom</a></li>
+                            <li><a href="catalogPage.php?varname=<?php echo "Garden" ?>">Garden</a></li>
                             <li><a href="contact.php">Contact</a></li>
                             <li><a href="log-in.php">Login</a></li>
                         </ul>
