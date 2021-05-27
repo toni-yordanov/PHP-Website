@@ -16,10 +16,15 @@ class stringOperations{
         
         return $string;
     }
-    public static function checkName($string)
+    public static function checkName($firstName)
     {
-        $pattern = "/^[a-z .,'-]+$/";
-        return preg_match($pattern,$string);
+        if(preg_match("/^[A-Z][-,a-zA-Z']+$/", $firstName) != 1)
+        {
+            throw new InvalidNameException("The first name that you inserted in invalid.
+             First name has to start with a capital letter and it must containt at least 
+             2 characters.");
+        }
+        return true;
     }
     
     public static function checkPassword($password)
@@ -42,10 +47,17 @@ class stringOperations{
         return true;
     }
 
-    public static function checkPhone_nr($string)
+    public static function checkPhone_nr($phoneNumber)
     {
-        $pattern = "/^$/";
-        return preg_match($pattern,$string);
+        if(preg_match("/^((\+31)|(0031)|0)(\d{1,3})(\d{8})$/",
+         $phoneNumber) != 1)
+        {
+            throw new InvalidPhoneNumberException("The phone number that you have entered
+             is invalid. The phone number should not contain any spaces, dashes or paranthesis.
+             Example of valid numbers:0612345678, 04012345678, 049212345678, 0031612345678,
+              003149212345678, +31612345678");
+        }
+        return true;
     }
 }
 ?>

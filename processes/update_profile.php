@@ -1,6 +1,5 @@
 <?php 
 
-
 include_once('server.php');
 include_once('../html/profile.php');
 include_once('../processes/stringOperations.php');
@@ -15,21 +14,35 @@ if(isset($_POST['update']))
     $first_name = stringOperations::cleanString($_POST['first_name']);
     $last_name = stringOperations::cleanString($_POST['last_name']);
     $phone_nr = stringOperations::cleanString($_POST['phone_nr']);
-    $password = stringOperations::cleanPassword($_POST['password']);
-    $repeat_password = stringOperations::cleanPassword($_POST['repeat_password']);
-
+    
     if($first_name == "" || $last_name == "" || $phone_nr == "" )
     {
-        echo "Only password and repeat password can be empty";
-        return;
+        echo "No field can be left empty";
     }
-    $id = $result['id'];
-
-        if(updateDetails($id,$first_name,$last_name,$phone_nr))
+    else
+    {
+        $id = $result['id'];
+        try 
         {
-            //$_SESSION['email'] = $email;
-            header("Location: ../html/profile.php");
+            stringOperations::checkName($first_name);
+            stringOperations::checkName($last_name);
+            stringOperations::checkPhone_nr($phone_nr);
+            if(updateDetails($id,$first_name,$last_name,$phone_nr))
+            {
+                //$_SESSION['email'] = $email;
+                header("Location: ../html/profile.php");
+                echo"Updated details successfully";
+            }
+        } 
+        catch (InvalidNameException $ex) 
+        {
+            echo $ex->getMessage();
         }
+        catch (InvalidPhoneNumberException $ex) 
+        {
+            echo $ex->getMessage();
+        }
+    }
 }
 
 
