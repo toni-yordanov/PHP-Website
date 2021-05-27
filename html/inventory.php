@@ -43,13 +43,15 @@
             </div>
             <br>
 
-            <label for="category">Select material</label>
+            <label for="category">Select category</label>
             <div class="custom-select" style="width:200px;">
             <select id="category" name="category">
                 <option value="Bedroom">Bedroom</option>
                 <option value="Bathroom">Bathroom</option>
                 <option value="Kitchen">Kitchen</option>
                 <option value="Garden">Garden</option>
+                <option value="Office">Office</option>
+                <option value="Living room">Living room</option>
             </select>
             </div>
             <br>
