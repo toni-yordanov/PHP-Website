@@ -7,6 +7,7 @@
     <title>Meubilair</title>
     <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/reset_password_anonymous_user.css"></link>
+    <noscript><p>Please enable JavaScript in your browser for better use of the website.</p></noscript>
 </head>
 
 

@@ -52,7 +52,7 @@ class User {
     {
         if(preg_match("/^[A-Z][-,a-zA-Z']+$/", $firstName) != 1)
         {
-            throw new InvalidNameException("The first name that you inserted in invalid.
+            throw new InvalidFirstNameException("The first name that you inserted in invalid.
              First name has to start with a capital letter and it must containt at least 
              2 characters.");
         }
@@ -63,7 +63,7 @@ class User {
     {
         if(preg_match("/^[A-Z][-,a-zA-Z']+$/", $lastName) != 1)
             {
-                throw new InvalidNameException("The last name that you inserted in invalid.
+                throw new InvalidLastNameException("The last name that you inserted in invalid.
              Last name has to start with a capital letter and it must containt at least 
              2 characters.");
             }

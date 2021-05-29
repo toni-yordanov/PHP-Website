@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="EN">
 <head>
@@ -6,13 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meubilair</title>
     <link rel="stylesheet" href="../css/contact.css">
-    <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" defer src="../js/contact.js" ></script>
+    <noscript><p>Please enable JavaScript in your browser for better use of the website.</p></noscript>
 </head>
-<body>
 
-<!-- START Top page -->
-<?php include('menus.php')?>
-<!-- END Top page -->
+<body>
+<?php 
+include('menus.php');
+include('../processes/userQueries.php');
+
+$FullName = $Email = "";
+if(isset($_SESSION['email']))
+{
+    $result = UserQueries::GetUserDetails($_SESSION['email']);
+    $FullName = $result['first_name'] . " " . $result['last_name'];
+    $Email = $result['email'];
+}
+?>
+
 
 
 <div class="grid-container">
@@ -31,21 +44,14 @@
 
     <div class="right">
         <h2>Contact us</h2>
-        <form id="f-contact" method="POST" action="../processes/">
-        
+        <form id="f-contact" method="POST" action="../processes/contact.php">
             <label for="name">Full name</label>
-            <p><input type="text" id="name" name="name" value="">
+            <p><input type="text" name="name" value="<?php echo "$FullName"; ?>" placeholder="Full name..">
             </p>
 
             <label for="email">Email</label>
-            <p><input type="text" id="email" name="email" value="" autocapitalize="off" autocorrect="off">
+            <p><input type="text" name="email" value="<?php echo "$Email"; ?>" autocapitalize="off" autocorrect="off" placeholder="Email..">
             </p>
-        
-            <!--
-                <label for="phone-nr">Phone number</label>
-            <p><input type="text" name="contact" value=""></p>
-             -->
-            
 
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Write something.."></textarea>

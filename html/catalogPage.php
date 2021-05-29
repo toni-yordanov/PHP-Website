@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
     <script src="../js/catalogPage.Js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
+    <noscript><p>Please enable JavaScript in your browser for better use of the website.</p></noscript>
 </head>
 <body>
 <!-- START Top page -->

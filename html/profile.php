@@ -8,20 +8,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meubilair</title>
     <link rel="stylesheet" href="../css/profile.css">
-    <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
     <script defer src="../js/profile.js"></script>
+    <noscript><p>Please enable JavaScript in your browser for better use of the website.</p></noscript>
 </head>
 <body>
 
 <?php include('menus.php');
 
-include_once("../processes/server.php");
+include_once("../processes/userQueries.php");
 include_once("../processes/update_profile.php");
-$result = GetUserDetails($_SESSION['email']);
+if(isset($_SESSION['email']))
+{
+    $result = UserQueries::GetUserDetails($_SESSION['email']);
 
-echo "Welcome " . $_SESSION['email'];
-echo "<a href='../processes/logout.php'><button>Logout</button></a>";
-echo "<a href='../processes/delete_user.php'><button>Delete</button></a>";
+    echo "Welcome " . $_SESSION['email'];
+    echo "<a href='../processes/logout.php'><button>Logout</button></a>";
+    echo "<a href='../processes/delete_user.php'><button>Delete</button></a>";
+}
+else
+{
+    header("Location: index.php");
+}
+
 
 function GetEmail()
 {
