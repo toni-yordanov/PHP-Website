@@ -25,9 +25,10 @@ class  Send_email
       $mail->addAddress($address); // Email address where you want to receive emails (you can use any of your gmail address including the gmail address which you used as SMTP server)
   
       $mail->isHTML(true);
+      
       $mail->Subject = $subject;
       $mail->Body = $body;
-  
+      
       $mail->send();
       $alert = '<div class="alert-success">
                    <span>Message Sent! Thank you for contacting us.</span>

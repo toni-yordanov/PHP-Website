@@ -16,12 +16,12 @@ class stringOperations{
         
         return $string;
     }
-    public static function checkName($firstName)
+    public static function checkName($name)
     {
-        if(preg_match("/^[A-Z][-,a-zA-Z']+$/", $firstName) != 1)
+        if(preg_match("/^[A-Z][-,a-zA-Z']+( [A-Z][-,a-zA-Z']+)$/", $name) != 1)
         {
-            throw new InvalidNameException("The first name that you inserted in invalid.
-             First name has to start with a capital letter and it must containt at least 
+            throw new InvalidNameException("The name that you inserted in invalid.
+             It has to start with a capital letter and it must containt at least 
              2 characters.");
         }
         return true;
