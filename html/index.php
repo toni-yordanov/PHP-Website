@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
     <noscript><p>Please enable JavaScript in your browser for better use of the website.</p></noscript>
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".menu" data-offset="60">
 <!-- START Top page -->
 <div id="home" class="container-full-height img-bgr">
         
@@ -85,5 +85,25 @@
 
 <!-- End Categories -->
 </body>
+<script>
+        var header = $('.img-bgr');
 
+var backgrounds = new Array( 
+    'url(../images/slideshow/slideshow.jpeg)'
+  , 'url(../images/slideshow/slideshow1.jpg)'
+  , 'url(../images/slideshow/slideshow2.jpg)'
+  , 'url(../images/slideshow/slideshow3.jpg)'
+);
+    
+var current = 0;
+
+function nextBackground() {
+    current++;
+    current = current % backgrounds.length;
+    header.css('background-image', backgrounds[current]);
+}
+setInterval(nextBackground, 2000);
+
+header.css('background-image', backgrounds[0]);
+    </script>
 </html>
