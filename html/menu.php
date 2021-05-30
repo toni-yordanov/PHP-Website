@@ -23,7 +23,7 @@
                             <li><a href="catalogPage.php?varname=<?php echo "Garden" ?>">Garden</a></li>
                             <li><a href="catalogPage.php?varname=<?php echo "Office" ?>">Office</a></li>
                             <li><a href="catalogPage.php?varname=<?php echo "Kitchen" ?>">Kitchen</a></li>
-                            <li><a href="catalogPage.php?varname=<?php echo "Living room" ?>">Living room</a></li>
+                            <li><a href="catalogPage.php">Living room</a></li>
                             <li><a href="contact.php">Contact</a></li>
                             <li><a href="log-in.php">Login</a></li>
                         </ul>
