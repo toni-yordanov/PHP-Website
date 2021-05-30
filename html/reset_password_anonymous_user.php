@@ -5,7 +5,9 @@
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meubilair</title>
-    <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+    <script defer src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="../js/reset_password_anonymous_user.js"></script>
     <link rel="stylesheet" href="../css/reset_password_anonymous_user.css"></link>
     <noscript><p>Please enable JavaScript in your browser for better use of the website.</p></noscript>
 </head>
@@ -20,9 +22,10 @@
 
         <form action="../processes/update_password.php" method="POST">
             <label for="email">Email</label>
-            <input type="text" name="email">
-            <input class = "button" type="submit" name="update_password" value="Get email">
+            <input type="text" id="email" name="email">
+            <input class = "button" type="submit" id="update_password" name="update_password" value="Get email">
         </form>
+        <p class="form-message"></p>
     </div>
 
 
@@ -31,25 +34,37 @@
 <?php 
     if(isset($_GET["reset"]) && $_GET["reset"] == "success")
     {
-        echo"An email was sent to your address";
+        ?><script>
+            alert("An email was sent to your address");
+        </script><?php
     }
     elseif(isset($_GET["newpwd"]))
     {
         if($_GET["newpwd"]=="empty")
         {
-            echo "There has been an error, please resubmit your request.";
+            ?>
+            <script>
+                alert("There has been an error, please resubmit your request.");
+            </script>
+            <?php
         }
         elseif($_GET["newpwd"]=="mismatch")
         {
-            echo "The passwords do not match";
+            ?>
+            <script>
+                alert("The passwords do not match");
+            </script>
+            <?php
         }
         elseif($_GET["newpwd"]=="passwordupdated")
         {
-            echo "Password updated successfully";
+            ?>
+            <script>
+                alert("Password updated successfully");
+            </script>
+            <?php
         }
     }
 ?>
-
 </body>
-
 </html>

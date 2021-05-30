@@ -202,7 +202,7 @@ class UserQueries
         }
 
     }
-    public static function CreateToken($email, $selector, $token, $expires)
+    public static function CreateToken($email, $selector, $token)
     {
         $expires = date("U") + 1200;//set expire date in 20 minutes
         $hashToken = password_hash($token, PASSWORD_DEFAULT);

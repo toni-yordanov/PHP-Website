@@ -6,83 +6,84 @@ include_once('../classes/Exceptions/UserExceptions.php');
 
 //declare vars 
 $email = $password = $newPassword = $newPasswordRepeat = "";
-if(isset($_POST['reset-password']))
+
+
+$errorEmpty = $errorNewPassword = $errorNewPasswordRepeat = $errorNoUser = false;
+
+
+if(isset($_POST['reset_password']))
 {
     //store required data in variables
     $email = $_SESSION['email'];
-    $password = stringOperations::cleanPassword($_POST['current-pwd']);
-    $newPassword = stringOperations::cleanPassword($_POST['new-pwd']);
-    $newPasswordRepeat =stringOperations::cleanPassword($_POST['new-pwd-repeat']);
+    $password = stringOperations::cleanPassword($_POST['current_pwd']);
+    $newPassword = stringOperations::cleanPassword($_POST['new_pwd']);
+    $newPasswordRepeat =stringOperations::cleanPassword($_POST['new_pwd_repeat']);
 
-    try {
-        if(CheckInput($email,$password,$newPassword,$newPasswordRepeat))
+    if(empty($password) || empty($newPassword) || empty($newPasswordRepeat))
+    {
+        $errorEmpty = true;
+        echo"<span class='form-error'>No field can be left empty!</span>";
+    }
+    else
+    {
+        try
         {
-            if(UserQueries::CheckLogin($email, $password))
+            stringOperations::checkPassword($newPassword);
+            if($newPassword == $newPasswordRepeat)
             {
-                if($password != $newPassword)
+                if(UserQueries::CheckLogin($email, $password))
                 {
-                        userQueries::UpdatePassword($email, $newPassword);
-                        session_destroy();
-                        header("Location: ../html/log-in.php");
-                        //script alert bla bla bla 
+                    userQueries::UpdatePassword($email, $newPassword);
+                    session_destroy();
                 }
-                else {
-                    echo "Please choose a new password different from the old one!";
+                else
+                {
+                    $errorNoUser = true;
+                    echo"<span class='form-error'>Wrong current password!</span>";
                 }
             }
             else
             {
-                echo "Wrong current password";
+                echo"<span class='form-error'>Passwords do not match!</span>";
+                $errorNewPasswordRepeat = true;
             }
+
+        }
+        catch (InvalidPasswordException $ex)
+        {
+            $errorNewPassword = true;
+            echo"<span class='form-error'>" . $ex->getMessage() ."</span>";
         }
     }
-    catch (InvalidPasswordException $ex)
-    {
-        echo $ex->getMessage();
-    }
 }
 
-function CheckInput($email, $password, $newPassword, $newPasswordRepeat)
-{
-    //in case of an error 
-    if(empty($email))
-    {
-        header("Location: ../html/index.php");
-        return false;
-    }
 
-
-    if(empty($password))
-    {
-        echo"Current password is empty!";
-        return false;
-    }
-    else
-    {
-        stringOperations::checkPassword($password);
-    }
-
-
-    if(empty($newPassword))
-    {
-        echo"New password is empty!";
-        return false;
-    }
-    else
-    {
-        stringOperations::checkPassword($newPassword);
-    }
-
-    if(empty($newPasswordRepeat))
-    {
-        echo"New password repeat is empty!";
-        return false;
-    }
-    if($newPassword != $newPasswordRepeat)
-    {
-        echo"Passwords do not match!";
-        return false;
-    }
-    return true;
-}
 ?>
+<script>
+    $("#current_pwd, #new_pwd, #new_pwd_repeat, #reset_password").removeClass("input-error");
+    var errorEmpty = "<?php echo $errorEmpty; ?>";
+    var errorNewPassword = "<?php echo $errorNewPassword; ?>";
+    var errorNewPasswordRepeat = "<?php echo $errorNewPasswordRepeat; ?>";
+    var errorNoUser = "<?php echo $errorNoUser; ?>";
+    
+
+
+    if(errorEmpty == true)
+    {
+        $("#current_pwd, #new_pwd, #new_pwd_repeat, #reset_password").addClass("input-error");
+    }
+    if(errorNewPassword == true)
+    {
+        $("#new_pwd").addClass("input-error");
+    }
+    if(errorNewPasswordRepeat == true)
+    {
+        $("#new_pwd_repeat").addClass("input-error");
+    }
+    
+    if(errorEmpty == false && errorNewPassword == false && errorNewPasswordRepeat == false && errorNoUser == false)
+    {
+        $("#current_pwd, #new_pwd, #new_pwd_repeat, #reset_password").val("");
+        alert("Password updated successfully!");
+    }
+</script>

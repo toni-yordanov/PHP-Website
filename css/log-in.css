@@ -1,4 +1,5 @@
 @import "style.css";
+@import "validation.css";
 
 /* Log in*/
 
@@ -84,23 +85,4 @@ form label{
 }
 #alreadyAccount{
     text-align: center;
-}
-.form-message{
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    border: 10px;
-    border-color: rgb(255, 0, 0);
-    box-shadow: 3px 3px 3px rgb(255, 0, 0);
-    width: 95%;
-    
-    margin: 0 auto 0 auto ;
-}
-.form-error{
-    color: rgb(255, 0, 0);
-    height: 40px;
-    font-size: 19pt;
-}
-.input-error{
-    border-color: rgb(255, 0, 0);
-    box-shadow: 3px 3px rgb(255, 0, 0);
 }
