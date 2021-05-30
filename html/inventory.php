@@ -6,15 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage inventory</title>
-    <link rel="stylesheet" href="../css/inventory.css">
+    <link rel="stylesheet" type="text/css" href="../css/inventory.css">
     <script src="https://kit.fontawesome.com/6cf6e5ecb9.js" crossorigin="anonymous"></script>
 </head>
+
+
+
 <body>
 
 <?php include('menus.php');?>
 
-<div class = "col-pc-6 col-xs-12">
-<form id="f-products" method="POST" action="../processes/product-manager.php">
+<div class = "inventory-main col-pc-12 col-xs-12">
+<form id="f-products" method="POST" action="../processes/product-manager.php" class="col-pc-5">
         
             <label for="product-id">ID</label>
             <p><input type="text" id="product-id" name="product-id" readonly>
@@ -56,27 +59,35 @@
             </div>
             <br>
 
+            <input type="file" id="file" name="file" />
+            <br>
+            <br>
+            <br>
 
-            
-
-            <button id="add-product" type="submit" name="add-product" >Add product</button>
+            <button id="add-product" type="submit" name="add-product" onclick="uploadFile()" >Add product</button>
             <button id="update-product" type="submit" name="update-product" >Update product</button>
             <button id="delete-product" type="submit" name="delete-product" >Delete product</button>
 
-</form> 
-</div>
-<?php
-$item_id = 0;
+</form>
+<div class = "col-pc-5 col-xs-12">
+    <form method="POST" action="">
+    <label for="search-id">Enter ID</label>
+    <input type="text" id="search-id" name="search-id">
+    <button id="search" type="submit" name="search">Search by id</button>        
+    </form>
 
+</div>
+</div>
+
+<?php
 if(isset($_POST['search']))
 {
     include_once('../processes/server.php');
     include_once('../processes/product-manager.php');
     $con =  Dbh::connect();
     $id = ($_POST['search-id']);
-    $item_id = $id;
 
-    $result = getFurnitureById($id);
+    $result = ProductQueries::getFurnitureById($id);
 
     ?>
     <script>
@@ -90,19 +101,14 @@ if(isset($_POST['search']))
     <?php
     
 }
-
-
 ?>
 
 
-<div class = "col-pc-6 col-xs-12">
-    <form method="POST" action="">
-    <label for="search-id">Enter ID</label>
-    <p><input type="text" id="search-id" name="search-id"></p>
-    <button id="search" type="submit" name="search" >Search by id</button>        
-    </form>
 
-</div>
 
 </body>
+
 </html>
+
+<script>
+

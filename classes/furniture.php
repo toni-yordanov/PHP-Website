@@ -10,9 +10,10 @@ class Furniture{
     private $material;
     private $category;
     private $deleted;
+    private $file_name;
 
     //constructor
-    public function __construct($id, $name, $price, $description, $material, $category)
+    public function __construct($id, $name, $price, $description, $material, $category, $file_name)
     {
         $this -> id = $id;
         $this -> name = $name;
@@ -21,6 +22,8 @@ class Furniture{
         $this -> material = $material;
         $this -> category = $category;
         $this -> deleted = false;
+        $this -> file_name = $file_name;
+
     }
 
     //methods
@@ -51,6 +54,11 @@ class Furniture{
     public function getDeleted()
     {
         return $this->deleted;
+    }
+
+    public function getFileName()
+    {
+        return $this->file_name;
     }
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-include_once('server.php');
+include_once('productQuerries.php');
 include_once('stringOperations.php');
 include('../classes/furniture.php');
 
@@ -12,7 +12,42 @@ if(isset($_POST['add-product']))
     $product_description = ($_POST['product-description']);
     $material = stringOperations::cleanString($_POST['material']);
     $category = stringOperations::cleanString($_POST['category']);
+    $file_name = '';
     
+    if(isset($_FILES['file'])){
+
+        $ext_err = false;
+        $extentions = array('jpg', 'jpeg', 'png', 'gif');
+
+        $file_ext = explode('.',$_FILES['userfile']['name']);
+        $file_ext = end($file_ext);
+
+
+        if(!in_array($file_ext, $extentions)){
+            $ext_err = true;
+        }
+
+        if($_FILES['userfile']['error']){
+            ?>
+        <script>
+        alert("error with the file");
+        </Script>
+
+        <?php
+        }
+        if($ext_err){
+            ?>
+            <script>
+            alert("wrong extention");
+            </Script>
+    
+            <?php
+        }
+
+        move_uploaded_file($_FILES['userfile']['temp_name'], "images/products/".$_FILES['userfile']['name']);
+        $file_name = $_FILES['userfile']['name'];
+        
+    }
 
     if($product_name == "" || $product_price == "" || $product_description == "" || $material == "" || $category == "" )
     {
@@ -24,9 +59,14 @@ if(isset($_POST['add-product']))
         <?php
     }
     
-    if(addFurniture($con,$product_name,$product_price,$product_description,$material,$category))
+    if(ProductQueries::addFurniture($con,$product_name,$product_price,$product_description,$material,$category, $file_name))
     {
-        
+        ?>
+        <script>
+        alert("Product Added");
+        </Script>
+
+        <?php
     }
     else
     {
@@ -69,7 +109,7 @@ if(isset($_POST['update-product']))
         <?php
     }
     
-    if(updateFurniture($item_id,$product_name,$product_price,$product_description,$material,$category))
+    if(ProductQueries::updateFurniture($item_id,$product_name,$product_price,$product_description,$material,$category))
     {
         ?>
         <script>
@@ -105,7 +145,7 @@ if(isset($_POST['delete-product']))
         <?php
     }
     
-    if(deleteFurniture($item_id))
+    if(ProductQueries::deleteFurniture($item_id))
     {
         ?>
         <script>
@@ -126,101 +166,9 @@ if(isset($_POST['delete-product']))
     }
 }
 
-/*
-foreach (getAllFurniture() as $result) {
-    echo $result['id'] . '<br>';
-    echo $result['product_name'] . '<br>';
-    echo $result['price'] . '<br>';
-    echo $result['product_description'] . '<br>';
-    echo $result['material'] . '<br>';
-    echo $result['category'] . '<br>';
-    echo '<br>';
-}*/
-
-function updateFurniture($item_id,$product_name,$product_price,$product_description,$material,$category)
-{
-    $con =  Dbh::connect();
-    $query = $con->prepare("
-    UPDATE furniture
-     SET name = :name, price = :price, description = :description, material = :material, category = :category 
-    WHERE id=:id
-    ");
-    $query->bindParam(":name", $product_name);
-    $query->bindParam(":price", $product_price);
-    $query->bindParam(":description", $product_description);
-    $query->bindParam(":material", $material);
-    $query->bindParam(":category", $category);
-    $query->bindParam(":id",$item_id);
-
-    return $query->execute();
-}
-
-function getFurnitureById($id) {
-        
-        $sql = "SELECT * FROM furniture WHERE id = ?";
-        $stmt = Dbh::connect()->prepare($sql);
-
-        $stmt->execute([$id]);
-        $result = $stmt->fetch();
 
 
-        return $result;
-        
-    }
-    //to insert into the database
-function addFurniture($con, $name, $price, $description, $material, $category) {
-            $query = $con->prepare("
-            INSERT INTO  furniture (id,name,price,description,material,category)
-
-            VALUES(NULL,:product_name,:price,:product_description,:material,:category)
-        ");
-        $query->bindParam(":product_name",$name);
-        $query->bindParam(":price",$price);
-        $query->bindParam(":product_description",$description);
-        $query->bindParam(":material",$material);
-        $query->bindParam(":category",$category);
-
-return $query->execute();
-    }
-
-function getAllFurniture() {
-        
-        $sql = "SELECT * FROM furniture";
-        $stmt = Dbh::connect()->prepare($sql);
-
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-     function getFurnitureByCategory($category) {
-        
-        $sql = "SELECT id, name, price , description, material, category FROM furniture where category = :category and deleted = 0";
-        $stmt = Dbh::connect()->prepare($sql);
-        $stmt ->bindParam(":category", $category);
-        $i = 0;
-        $stmt->execute();
-        $result = null;
-        foreach ($stmt as $row) {
-            $result[$i] = new Furniture($row[0],$row[1],$row[2],$row[3],$row[4],$row[5],);
-            $i++;
-        }
-        
-        
-        
-        return $result;
-
-    }
  
-function deleteFurniture($item_id) {
-    $con =  Dbh::connect();
-    $query = $con->prepare("
-    UPDATE furniture
-     SET deleted = TRUE
-    WHERE id=:id
-    ");
-    $query->bindParam(":id",$item_id);
-
-    return $query->execute();
-}   
+  
 
 ?>
