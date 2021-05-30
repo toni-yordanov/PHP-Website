@@ -19,13 +19,13 @@
         <p><input type="text" name="email" autocapitalize="off" autocorrect="off"></p>
 
         <label for="Password">Password</label>
-        <p><input type="password" name="password" value=""></p>
+        <p><input type="password" name="password" value="" id="password"></p>
 
         <button id="log-in" type="submit" name="btn-login">Log In</button>
         
         <label id="showPassword">
             Show password
-            <input type="checkbox" checked="checked" name="showPassword">
+            <input type="checkbox" checked="checked" name="showPassword" onclick="ShowPassword()">
         </label>
 
         <div class="log_in-help">
@@ -36,4 +36,16 @@
 </div>
 
 </body>
+
+<script>
+function ShowPassword(){
+var passCheckBox = document.getElementById('showPassword');
+if(passCheckBox){
+    document.getElementById('password').type = 'text';
+}
+else{
+    document.getElementById('password').type = 'password';
+}
+}
+</script>
 </html>
