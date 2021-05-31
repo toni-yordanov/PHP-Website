@@ -58,25 +58,28 @@ if(isset($_POST['add-product']))
 
         <?php
     }
+    else 
+    {
+        if(ProductQueries::addFurniture($con,$product_name,$product_price,$product_description,$material,$category, $file_name))
+        {
+            ?>
+            <script>
+            alert("Product Added");
+            </Script>
+
+            <?php
+        }
+        else
+        {
+            ?>
+            <script>
+            alert("An error has ocurred, cannot add product");
+            </Script>
+
+            <?php
+        }
+    }
     
-    if(ProductQueries::addFurniture($con,$product_name,$product_price,$product_description,$material,$category, $file_name))
-    {
-        ?>
-        <script>
-        alert("Product Added");
-        </Script>
-
-        <?php
-    }
-    else
-    {
-        ?>
-        <script>
-        alert("An error has ocurred, cannot add product");
-        </Script>
-
-        <?php
-    }
 }
 
 if(isset($_POST['update-product']))
