@@ -10,7 +10,7 @@
             <div class="col-pc-4 col-xs-9">
                 <div class="site-branding padding-left-right">
                     <img alt="logo" src="../pictures/logo.png">
-                    <p><a href="index.php">Me<span class="bone">ubilair</span></p>
+                    <p><a href="../html/index.php">Me<span class="bone">ubilair</span></p>
                 </div>
             </div>
 

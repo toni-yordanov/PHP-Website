@@ -26,7 +26,28 @@ class stringOperations{
         }
         return true;
     }
-    
+    public static function checkFirstName($firstName)
+    {
+        if(preg_match("/^[A-Z][-,a-zA-Z']+$/", $firstName) != 1)
+        {
+            throw new InvalidFirstNameException("The first name that you inserted in invalid.
+             First name has to start with a capital letter and it must containt at least 
+             2 characters.");
+        }
+
+        return true;
+    }
+    public static function checkLastName($lastName)
+    {
+        if(preg_match("/^[A-Z][-,a-zA-Z']+$/", $lastName) != 1)
+        {
+            throw new InvalidLastNameException("The last name that you inserted in invalid.
+            Last name has to start with a capital letter and it must containt at least 
+            2 characters.");
+        }
+
+        return true;
+    }
     public static function checkPassword($password)
     {
         if(preg_match("/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/", 

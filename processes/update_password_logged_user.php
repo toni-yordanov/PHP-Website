@@ -15,9 +15,9 @@ if(isset($_POST['reset_password']))
 {
     //store required data in variables
     $email = $_SESSION['email'];
-    $password = stringOperations::cleanPassword($_POST['current_pwd']);
-    $newPassword = stringOperations::cleanPassword($_POST['new_pwd']);
-    $newPasswordRepeat =stringOperations::cleanPassword($_POST['new_pwd_repeat']);
+    $password = $_POST['current_pwd'];
+    $newPassword = $_POST['new_pwd'];
+    $newPasswordRepeat = $_POST['new_pwd_repeat'];
 
     if(empty($password) || empty($newPassword) || empty($newPasswordRepeat))
     {
@@ -31,9 +31,9 @@ if(isset($_POST['reset_password']))
             stringOperations::checkPassword($newPassword);
             if($newPassword == $newPasswordRepeat)
             {
-                if(UserQueries::CheckLogin($email, $password))
+                if(UserQueries::CheckLogin($email,stringOperations::cleanPassword($password)))
                 {
-                    userQueries::UpdatePassword($email, $newPassword);
+                    userQueries::UpdatePassword($email, stringOperations::cleanPassword($newPassword));
                     session_destroy();
                 }
                 else
@@ -60,7 +60,7 @@ if(isset($_POST['reset_password']))
 
 ?>
 <script>
-    $("#current_pwd, #new_pwd, #new_pwd_repeat, #reset_password").removeClass("input-error");
+    $("#current_pwd, #new_pwd, #new_pwd_repeat").removeClass("input-error");
     var errorEmpty = "<?php echo $errorEmpty; ?>";
     var errorNewPassword = "<?php echo $errorNewPassword; ?>";
     var errorNewPasswordRepeat = "<?php echo $errorNewPasswordRepeat; ?>";
@@ -70,8 +70,9 @@ if(isset($_POST['reset_password']))
 
     if(errorEmpty == true)
     {
-        $("#current_pwd, #new_pwd, #new_pwd_repeat, #reset_password").addClass("input-error");
+        $("#current_pwd, #new_pwd, #new_pwd_repeat").addClass("input-error");
     }
+    
     if(errorNewPassword == true)
     {
         $("#new_pwd").addClass("input-error");
@@ -83,7 +84,8 @@ if(isset($_POST['reset_password']))
     
     if(errorEmpty == false && errorNewPassword == false && errorNewPasswordRepeat == false && errorNoUser == false)
     {
-        $("#current_pwd, #new_pwd, #new_pwd_repeat, #reset_password").val("");
-        alert("Password updated successfully!");
+        $("#current_pwd, #new_pwd, #new_pwd_repeat").val("");
+        alert("Password updated successfully! Please log in again.");
+        window.parent.location.href = "../html/log-in.php";
     }
 </script>

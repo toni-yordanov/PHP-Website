@@ -56,7 +56,7 @@ if (isset($_POST["reset_password_submit"]))
 
     if(errorEmptySelectorValidator == true)
     {
-        window.location.href = "../html/reset_password_anonymous_user.php?newpwd=empty";
+        window.parent.location.href = "../html/index.php";
     }
     if(errorEmpty == true)
     {
@@ -74,6 +74,6 @@ if (isset($_POST["reset_password_submit"]))
     {
         $("#pwd, #pwd_repeat").val("");
         alert("Password updated successfully! Now, login!");
-        //window.location.href = "../html/log-in.php";
+        window.parent.location.href = "../html/log-in.php";
     }
 </script>

@@ -25,16 +25,26 @@ if(isset($_POST['update']))
         $id = $result['id'];
         try 
         {
-            stringOperations::checkName($first_name);
-            stringOperations::checkName($last_name);
+            stringOperations::checkFirstName($first_name);
+            stringOperations::checkLastName($last_name);
             stringOperations::checkPhone_nr($phone_nr);
             if(UserQueries::updateDetails($id,$first_name,$last_name,$phone_nr))
             {
-                header("Location: ../html/profile.php");
-                echo"Updated details successfully";
+                //header("Location: ../html/profile.php");
+                ?>
+                <script>
+                alert("Information updated successfully");
+                window.location.href = "../html/profile.php";
+                </script>
+                
+                <?php
             }
         } 
-        catch (InvalidNameException $ex) 
+        catch (InvalidFirstNameException $ex) 
+        {
+            echo $ex->getMessage();
+        }
+        catch (InvalidLastNameException $ex) 
         {
             echo $ex->getMessage();
         }

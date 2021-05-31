@@ -10,7 +10,7 @@
             <div class="col-pc-4 col-xs-9">
                 <div class="site-branding padding-left-right">
                     <img alt="logo" src="../pictures/logo.png">
-                    <p><a href="index.php">Me<span class="bone">ubilair</span></p>
+                    <p><a href="../html/index.php">Me<span class="bone">ubilair</span></p>
                 </div>
             </div>
 
@@ -27,6 +27,7 @@
                             <li><a href="catalogPage.php?varname=<?php echo "Living room" ?>">Living room</a></li>
                             <li><a href="contact.php">Contact</a></li>
                             <li><a href="inventory.php">Inventory</a></li>
+                            <li><a href="profile.php">Profile</a></li>
                             <li><a href="../processes/logout.php">Logout</a></li>
                         </ul>
                     </nav>

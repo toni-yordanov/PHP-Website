@@ -56,6 +56,7 @@
             </script>
             <?php
         }
+        /*
         elseif($_GET["newpwd"]=="passwordupdated")
         {
             ?>
@@ -63,7 +64,7 @@
                 alert("Password updated successfully");
             </script>
             <?php
-        }
+        }*/
     }
 ?>
 </body>

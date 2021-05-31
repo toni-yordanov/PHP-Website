@@ -62,11 +62,11 @@ class User {
     public function setLastName(string $lastName)
     {
         if(preg_match("/^[A-Z][-,a-zA-Z']+$/", $lastName) != 1)
-            {
-                throw new InvalidLastNameException("The last name that you inserted in invalid.
-             Last name has to start with a capital letter and it must containt at least 
-             2 characters.");
-            }
+        {
+            throw new InvalidLastNameException("The last name that you inserted in invalid.
+            Last name has to start with a capital letter and it must containt at least 
+            2 characters.");
+        }
 
         $this->lastName = $lastName;
     }

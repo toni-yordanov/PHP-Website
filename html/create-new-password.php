@@ -11,10 +11,10 @@
      <script defer src="../js/create-new-password.js" ></script>
     <noscript><p>Please enable JavaScript in your browser for better use of the website.</p></noscript>
 </head>
-
 <body>
 
 <?php 
+    
     $selector = $_GET["selector"];
     $validator = $_GET["validator"];
 
